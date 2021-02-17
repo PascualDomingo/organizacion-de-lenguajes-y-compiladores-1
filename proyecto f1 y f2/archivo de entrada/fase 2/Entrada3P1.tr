@@ -1,0 +1,41 @@
+incluir("Entrada3P2.tr")$
+
+    Clase ArbolBinario{
+    	
+    	<- Aquí empieza la ejecución ->
+    	
+    	principal(){
+    		Arbol arbol = nuevo Arbol()$ //Creo un nuevo árbol
+            mostrarNotificacion("Resultado", "Iniciando Arbol Binario")$
+            arbol.constructor(100)$ //Llamo al constructor de la clase Arbol y defino la raiz el árbol
+            arbol.agregarNodo(70)$
+            arbol.agregarNodo(130)$
+            arbol.agregarNodo(40)$
+            arbol.agregarNodo(115)$
+            arbol.agregarNodo(200)$
+            arbol.agregarNodo(93)$
+            arbol.agregarNodo(150)$
+            arbol.agregarNodo(201)$
+            arbol.agregarNodo(10)$
+            arbol.agregarNodo(5)$
+            arbol.agregarNodo(71)$
+            arbol.agregarNodo(73)$
+            arbol.agregarNodo(74)$
+            arbol.agregarNodo(99)$
+
+            //Imprimir el recorrido preOrden
+            imprimir("<--------------------- Recorrido PreOrden --------------------->")$
+            arbol.imprimir_preOrden()$
+
+            //Imprimir el recorrido enOrden
+            imprimir("<--------------------- Recorrido EnOrden --------------------->")$
+            arbol.imprimir_enOrden()$
+
+            //Imprimir el recorrido PostOrden
+            imprimir("<--------------------- Recorrido PostOrden --------------------->")$
+            arbol.imprimir_postOrden()$
+    	}
+
+
+
+    }

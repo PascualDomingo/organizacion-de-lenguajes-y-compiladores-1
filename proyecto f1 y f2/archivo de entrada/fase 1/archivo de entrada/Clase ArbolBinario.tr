@@ -1,0 +1,85 @@
+Clase ArbolBinario{
+	principal(){
+		Arbol arbol = nuevo Arbol()$
+		arbol.agregarNodo(70)$
+		arbol.agregarNodo(130)$
+		arbol.agregarNodo(40)$
+		arbol.agregarNodo(115)$
+		arbol.agregarNodo(200)$
+		arbol.agregarNodo(93)$
+		arbol.agregarNodo(150)$
+		arbol.agregarNodo(201)$
+		arbol.agregarNodo(10)$
+		arbol.agregarNodo(5)$
+		arbol.agregarNodo(71)$
+		arbol.agregarNodo(73)$
+		arbol.agregarNodo(74)$
+		arbol.agregarNodo(99)$
+
+		//imprimir el recorrdio preOrden
+	}
+}
+
+Clase Nodo{
+	entero valor$
+	Nodo hijoizquierdo$
+	Nodo hijoderecho$
+	booleano izquierdoesnulo$  //para saber si el hijo izquierdo es nulo o no
+	booleano derechoesnulo$		// para saber si el hijo derecho es nulo o no
+
+	//este metodo va a funcionar como el constructor de la clase
+	publico void constructor(entero par_valor){
+		valor = par_valor$
+		izquierdoesnulo = true$		//hijo izquierdo es nulo
+		derechoesnulo = true$		//hijo derecho es nulo
+	}
+
+	//metodos para imprimir los reccoridos del arbol
+	publico void imprimir_enOrden(){
+		si(izquierdoesnulo != true){
+			hijoizquierdo.imprimir_enOrden()$
+		}
+
+		imprimir(valor)$
+
+		si(derechoesnulo != true){
+			hijoderecho.imprimir_enOrden()$
+		}
+	} 
+}
+
+
+Clase Arbol{
+	Nodo raiz$
+	
+	//va  a funcionar como constructor de la clase
+	publico void constructor(entero par_valor){
+		raiz = nuevo Nodo()$
+		raiz.constructor(par_valor)$ //llamo al constructor del arbol
+	}
+
+
+	
+	publico void insetar(Nodo nuevonodo, Nodo raiz){
+		//si el valor del nuevo nodo es menos o igual que de la raiz
+		si(nuevonodo.valor <= raiz.valor){
+			//verifico si el hijo izquierdo de la raiz es nulo
+			si( raiz.izquierdoesnulo == true){
+				//si el hijo izquierdo es nulo
+				raiz.hijoizquierdo = nuevonodo$
+				raiz.izquierdoesnulo = false$ //indico que el hijo izquierdo ya no es nulo
+			}
+		}sino{
+			imprimir("los numeros son iguales")$
+		}
+	}
+
+	//	metodo que inserta un valor en el arbol de forma recursiva
+	publico void agregarNodo (entero valor1){
+		Nodo nuevonodo = nuevo Nodo()$
+		nuevonodo.constructor(valor1)$
+		insetar(nuevonodo, raiz)$
+	}
+
+}
+

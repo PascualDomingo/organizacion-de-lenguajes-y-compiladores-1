@@ -1,0 +1,257 @@
+
+clase clase2 {
+	arreglo entero arreglo3D1 [2][3][5]={{{1.5, 2.5, 3.5, 4.5, 5.5},{6.5, 7.5, 8.5, 9.5, 10.5},{11.5, 12.5, 13.5, 14.5, 15.5}},      
+	{{16.5, 17.5, 18.5, 19.5, 20.5},{21.5, 22.5, 23.5, 24.5, 25.5},{26.5, 27.5, 28.5, 29.5, 30.5}}}   $
+	arreglo entero arreglo3D2 [2][3][5]={{{5, 4, 3, 2, 1},{10, 9, 8, 7, 6},{15, 14, 13, 12, 11}},      {{20, 19, 18, 17, 16},{25, 24, 23, 22, 21},{30, 29, 28, 27, 26}}}$
+	publico void imprimirArreglo(){
+		imprimir("//////// ARREGLO 1 \\\\\\\\")$
+		imprimir("======= Valor: 1 =========")$
+		imprimir(arreglo3D1[0][0][0])$ // 1.5
+		imprimir("======= Valor: 2 =========")$ 
+		imprimir(arreglo3D1[0][1][1])$ // 7.5
+		imprimir("======= Valor: 3 =========")$
+		imprimir(arreglo3D1[0][1][3])$ // 9.5
+		imprimir("======= Valor: 4 =========")$
+		imprimir(arreglo3D1[1][2][4])$ // 30.5
+
+		imprimir("//////// ARREGLO 2 \\\\\\\\")$
+		imprimir("======= Valor: 1 =========")$
+		imprimir(arreglo3D2[0][0][3])$ // 2
+		imprimir("======= Valor: 2 =========")$ 
+		imprimir(arreglo3D2[0][2][1])$ // 14
+		imprimir("======= Valor: 3 =========")$
+		imprimir(arreglo3D2[0][1][2])$ // 8
+		imprimir("======= Valor: 4 =========")$
+		imprimir(arreglo3D2[1][2][3])$ // 27
+
+		imprimir("//////// VALORES CORRECTOS \\\\\\\\")$
+		imprimir("======= Valor: 1 =========")$
+		imprimir(arreglo3D1[0][0][0] * arreglo3D2[0][0][3])$ // 1.5 * 2 = 3.0
+		imprimir("======= Valor: 2 =========")$
+		imprimir(arreglo3D1[0][1][1] + arreglo3D2[0][2][1])$ // 7.5 + 14 = 21.5
+		imprimir("======= Valor: 3 =========")$
+		imprimir(arreglo3D1[0][1][3] - arreglo3D2[0][1][2])$ // 9.5 - 8 = 1.5
+		imprimir("======= Valor: 4 =========")$
+		imprimir(arreglo3D1[1][2][4] / arreglo3D2[0][0][3])$ // 30.5 / 2 = 15.25
+	}	
+
+	publico void imprimirPalabraCompi(){
+		Imprimir("<--------------------- INICIO IMAGEN 1 --------------------->")$
+        <- Imprimir letra C ->
+        arreglo cadena c [5][5] = {{"*", "*", "*", "*", "*"}, {"*", "Error", "Error", "Error", "Error"}, {"*", "Error", "Error", "Error", "Error"}, {"*", "Error", "Error", "Error", "Error"}, {"*", "*", "*", "*", "*"}}$
+        Imprimir(c[0][0] + c[0][1] + c[0][2] + c[0][3] + c[0][4])$ //Fila 1
+        Imprimir(c[1][0])$ //Fila 2
+        Imprimir(c[2][0])$ //Fila 3
+        Imprimir(c[3][0])$ //Fila 4
+        Imprimir(c[4][0] + c[4][1] + c[4][2] + c[4][3] + c[4][4])$ //Fila 5
+        Imprimir("----------")$
+
+        <- Imprimir letra O ->
+        arreglo cadena o [5][5]  = {{"*", "*", "*", "*", "*"}, {"*", "Error", "Error", "Error", "*"}, {"*", "Error", "Error", "Error", "*"}, {"*", "Error", "Error", "Error", "*"}, {"*", "*", "*", "*", "*"}}$
+        Imprimir(o[0][0] + o[0][1] + o[0][2] + o[0][3] + o[0][4])$ //Fila 1
+        Imprimir(o[1][0] + " " + " " + " " + o[1][4])$ //Fila 2
+        Imprimir(o[2][0] + " " + " " + " " + o[2][4])$ //Fila 3
+        Imprimir(o[3][0] + " " + " " + " " + o[3][4])$ //Fila 4
+        Imprimir(o[4][0] + o[4][1] + o[4][2] + o[4][3] + o[4][4])$ //Fila 5
+        Imprimir("----------")$
+
+        <- Imprimir letra M ->
+        arreglo cadena m [5][5]  = {{"*", "*", "Error", "*", "*"}, {"*", "Error", "*", "Error", "*"}, {"*", "Error", "Error", "Error", "*"}, {"*", "Error", "Error", "Error", "*"}, {"*", "Error", "Error", "Error", "*"}}$
+        Imprimir(m[0][0] + m[0][1] + " " + m[0][3] + m[0][4])$ //Fila 1
+        Imprimir(m[1][0] + " " + m[1][2] + " " + m[1][4])$ //Fila 2
+        Imprimir(m[2][0] + " " + " " + " " + m[2][4])$ //Fila 3
+        Imprimir(m[3][0] + " " + " " + " " + m[3][4])$ //Fila 4
+        Imprimir(m[4][0] + " " + " " + " " + m[4][4])$ //Fila 5
+        Imprimir("----------")$
+
+        <- Imprimir letra P ->
+        arreglo  cadena p [5][5]  = {{"Error", "*", "*", "*", "Error"}, {"Error", "*", "Error", "*", "Error"}, {"Error", "*", "*", "*", "Error"}, {"Error", "*", "Error", "Error", "Error"}, {"Error", "*", "Error", "Error", "Error"}}$
+        Imprimir(" " + p[0][1] + p[0][2] + p[0][3])$ //Fila 1
+        Imprimir(" " + p[1][1] + " " + p[1][3])$ //Fila 2
+        Imprimir(" " + p[2][1] + p[2][2] + p[2][3])$ //Fila 3
+        Imprimir(" " + p[3][1])$ //Fila 4
+        Imprimir(" " + p[4][1])$ //Fila 5
+        Imprimir("----------")$
+
+        <- Imprimir letra I ->
+        arreglo cadena i [5][5]  = {{"*", "*", "*", "*", "*"}, {"Error", "Error", "*", "Error", "Error"}, {"Error", "Error", "*", "Error", "Error"}, {"Error", "Error", "*", "Error", "Error"}, {"*", "*", "*", "*", "*"}}$
+        Imprimir(i[0][0] + i[0][1] + i[0][2] + i[0][3] + i[0][4])$ //Fila 1
+        Imprimir(" " + " " + i[1][2])$ //Fila 2
+        Imprimir(" " + " " + i[2][2])$ //Fila 3
+        Imprimir(" " + " " + i[3][2])$ //Fila 4
+        Imprimir(i[4][0] + i[4][1] + i[4][2] + i[4][3] + i[4][4])$ //Fila 5
+        Imprimir("----------")$
+
+        <- Imprimir número 1 ->
+        arreglo cadena uno [5][5]  = {{"Error", "Error", "Error", "Error", "*"}, {"Error", "Error", "Error", "*", "*"}, {"Error", "Error", "Error", "Error", "*"}, {"Error", "Error", "Error", "Error", "*"}, {"Error", "Error", "Error", "Error", "*"}}$
+        Imprimir(" " + " " + uno[0][4])$ //Fila 1
+        Imprimir(" " + uno[1][3] + uno[1][4])$ //Fila 2
+        Imprimir(" " + " " + uno[2][4])$ //Fila 3
+        Imprimir(" " + " " + uno[3][4])$ //Fila 4
+        Imprimir(" " + " " + uno[4][4])$ //Fila 5
+        Imprimir("----------")$
+        Imprimir("<--------------------- FINAL IMAGEN 1 --------------------->")$
+
+        Imprimir("")$
+        Imprimir("")$
+        Imprimir("")$
+        Imprimir("")$
+
+        Imprimir("<--------------------- INICIO IMAGEN 2 --------------------->")$
+        arreglo cadena imagen2 [5][5] = {{"Error", "Error", "Error", "Error", "*"}, {"Error", "Error", "Error", "*", "*"}, {"Error", "Error", "Error", "Error", "*"}, {"Error", "Error", "Error", "Error", "*"}, {"Error", "Error", "Error", "Error", "*"}}$
+        entero tamimagen2 = 5$
+
+        //LLeno el arreglo con espacios vacíos
+        Para (entero j = 0$ j < tamimagen2$ j++) {
+            Para (entero k = 0$ k < tamimagen2$ k++) {
+                imagen2[j][k] = " "$
+            }
+
+        }
+
+        //Lleno la mitad del arreglo con un caracter
+        Para (entero j = 0$ j < tamimagen2$ j++) {
+            Para (entero k = j$ k < tamimagen2$ k++) {
+                imagen2[j][k] = "*"$
+            }
+
+        }
+
+        //Imprimo la imagen en consola
+        Para (entero j = 0$ j < tamimagen2$ j++) {
+            cadena temp = ""$
+            Para (entero k = 0$ k < tamimagen2$ k++) {
+                temp = temp + imagen2[j][k]$ //Concateno lo que tiene el arreglo
+            }
+            Imprimir(temp)$ //Imprimo lo que tiene la variable temp
+
+        }
+
+        //LLeno el arreglo con espacios vacíos
+        Para (entero j = 0$ j < tamimagen2$ j++) {
+            Para (entero k = 0$ k < tamimagen2$ k++) {
+                imagen2[j][k] = " "$
+            }
+
+        }
+        //Lleno la mitad del arreglo con un caracter
+        Para (entero j = tamimagen2 - 1$ j >= 0$ j++) {
+            Para (entero k = j$ k >= 0$ k++) {
+                imagen2[j][k] = "*"$
+                k = k - 2$ 
+            }
+            j = j -2 $
+        }
+
+        //Imprimo la imagen en consola
+        Para (entero j = 0$ j < tamimagen2$ j++) {
+            cadena temp = ""$
+            Para (entero k = 0$ k < tamimagen2$ k++) {
+                temp = temp + imagen2[j][k]$ //Concateno lo que tiene el arreglo
+            }
+            Imprimir(temp)$ //Imprimo lo que tiene la variable temp
+
+        }
+        Imprimir("<--------------------- FINAL IMAGEN 2 --------------------->")$
+	}
+
+}
+
+clase clase3{
+    
+
+    void ordenamientos() 
+    {                    
+         entero tamano = 10$            
+         arreglo entero matrix[tamano] = {100,3,20,101,33,44,99,66,0,1}$
+         entero i, j = 0$
+         entero temp$
+         booleano swapped$
+
+         imprimir("Burbuja............")$
+         Imprimir("SalidaEsperada:: 0, 1, 3, 20, 33, 44, 66, 99, 100, 101")$
+         imprimir("...................")$
+
+         // Ordenamiento por metodo Burbuja
+         para( i = 0 $ i < tamano-1 $ i++){
+              para ( j = 0 $ j < tamano-i-1 $ j++)
+              {
+                   si (matrix[j] > matrix[j+1])
+                   {
+                        temp = matrix[j]$
+                        matrix[j] = matrix[j+1]$
+                        matrix[j+1] = temp$
+                   }
+              }
+         }        
+         para(i = 0$ i < tamano $ i++)
+         {
+              Imprimir(matrix[i])$
+         }                        
+
+        imprimir("Insercion............")$
+        Imprimir("SalidaEsperada:: 2, 4, 6, 7, 8, 9, 10, 75, 999, 1000")$
+         imprimir("...................")$
+         // Ordenamiento por metodo de insercion
+         entero aux$
+         arreglo entero matrix2[tamano] = {9,10,8,75,4,2,6,7,1000,999}$
+         para ( i = 1 $ i < tamano $ i++) 
+         {
+              aux = matrix2[i]$         
+              para ( j=i-1 $ (j >=0) && (matrix2[j] > aux)$ j--)
+              {
+                   matrix2[j+1] = matrix2[j]$
+              }
+              matrix2[j+1] = aux$
+         }                     
+         para(i = 0$ i < tamano $ i++)
+         {
+              Imprimir(matrix2[i])$
+         }            
+
+         // Ordenamiento por método de selección
+         imprimir("Seleccion............")$
+         Imprimir("SalidaEsperada:: 3, 5, 9, 20, 33, 44, 99, 100, 101, 111")$
+         imprimir("...................")$
+
+         arreglo entero matrix3[tamano] = {100,3,20,101,33,44,99,5,111,9}$     
+         entero k, p, buffer, limit = tamano-1$
+         i  = tamano -1$
+         j = tamano - 1$
+         para(k = 0$ k < limit$ k++)
+         {
+              p = k$
+              para(i = k+1$ i <= limit$ i++)
+              {
+                   si(matrix3[i] < matrix3[p]) 
+                   {
+                        p = i$
+                   }
+                   si(p != k)
+                   {
+                        buffer = matrix3[p]$
+                        matrix3[p] = matrix3[k]$
+                        matrix3[k] = buffer$
+                   }
+              }
+         }     
+         para(entero x = 0$ x < 10 $ x++)
+         {
+              Imprimir(matrix3[x])$
+         }  
+
+         // Ordenamiento por método de shell short                  
+    }
+}
+
+clase EntradaFunciones {
+   Principal(){
+		clase2 c2 = nuevo clase2()$
+		c2.imprimirArreglo()$
+		c2.imprimirPalabraCompi()$
+        clase3 c3 = nuevo clase3()$
+        c3.ordenamientos()$
+    }
+}
+
+

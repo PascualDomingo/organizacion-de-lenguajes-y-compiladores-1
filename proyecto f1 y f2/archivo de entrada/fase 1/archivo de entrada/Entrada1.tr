@@ -1,0 +1,125 @@
+
+clase EntradaDER {
+    <- VARIABLES SALIDA 1 ->
+    Cadena nombreConj = ""$
+    Cadena contConj = ""$
+    Cadena nombreConjNum = ""$
+    Cadena contConjNum = ""$
+    
+    Archivo global$
+    <- VARIABLES SALIDA 2 ->
+    
+    publico void setNombreContenidoConjunto(){
+        nombreConj = "letra"$
+        contConj = "a~z"$    
+        nombreConjNum = "numero"$
+        contConjNum = "1~9"$
+    }
+        
+    publico void Archivo1DERLocal(Cadena nombreArchivo, entero numeroVeces){
+        setNombreContenidoConjunto()$
+        Cadena salida1 = nombreArchivo$
+        Archivo arch1 = crearArchivoDer(salida1)$ // crearArchivo("salida1.der")$
+        arch1.crearConjunto(nombreConj, contConj)$
+        arch1.crearConjunto(nombreConjNum, contConjNum)$
+        Cadena nombreRegex1 = "ExpReg1"$
+        arch1.crearRegex(nombreRegex1, " . {digito} ? . \".\" + {digito}")$
+        Cadena nombreRegex2 = "ExpresionReg2"$    
+        arch1.crearRegex(nombreRegex2, " . {letra} * | \"_\" | {letra} {digito}")$       
+        para (entero i = 0$ i < numeroVeces$ i++) {
+            arch1.crearEntrada(nombreRegex1, i*1+"35.0"+i*5)$
+        }
+        entero i = 0$
+        Cadena lex$
+        mientras(i < 5){
+            si(i == 0){
+                lex = (i+1)+". Primero"$
+            }sino si(i == 1){
+                lex = (i+1)+". Segundo"$
+            }sino si(i == 2){
+                lex = (i+1)+". Tercero"$
+            }sino si(i == 3){
+                lex = (i+1)+". Cuarto"$
+            }sino{
+                lex = (i+1)+". Quenteroo"$
+            }
+            arch1.crearEntrada(nombreRegex2, lex)$
+            i = i + 1$
+        }
+        Cadena nombreR3 = "ExpReg3"$
+        arch1.crearRegex(nombreR3, " {digito} ?")$
+        entero numero1 = 0$
+        hacer {
+            Cadena casteo = ""+numero1$
+            arch1.crearEntrada(nombreR3, casteo)$
+            numero1++$
+        } mientras (numero1 < 11)$
+        arch1.guardarArchivo()$
+    }
+    
+    publico void Archivo2DERGlobal(Cadena nombre){
+        global = crearArchivoDer(nombre)$ // crearArchivo("salida1.der")$
+        Cadena lla = "lla"$
+        Cadena llo = "llo"$
+        Cadena nombreConjunto1 = "letri"+lla$
+        Cadena contConjunto1 = "a~"$    
+        Cadena nombreConjunto2 = "numeri"+llo$
+        Cadena contConjunto2 = "1~"$
+        global.crearConjunto(nombreConjunto1, contConjunto1+"n")$
+        global.crearConjunto(nombreConjunto2, contConjunto2+"5")$
+        Cadena m = "mayus"$
+        global.crearConjunto(m, "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z")$
+        Cadena sig = "sig"$
+        global.crearConjunto(sig, "!~#")$
+        Cadena mi = "minus"$
+        Cadena min = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"$
+        global.crearConjunto(mi, min)$
+        
+        Cadena identsiicador_REGEX = "ExpresionR1"$
+        global.crearRegex(identsiicador_REGEX, " . {digito} ? . \".\" + {digito}")$
+        Cadena identsiicador_REGEX_COPIA = "ExpresionRegularrrr"$
+        global.crearRegex(identsiicador_REGEX_COPIA, " . {digito} ? . \".\" + {digito}")$
+        
+        Cadena nombreRegex2 = "ExpresionR2"$    
+        global.crearRegex(nombreRegex2, " . {letra} * | \"_\" | {letra} {digito}")$
+                
+        entero i$
+        entero numeroVeces = 3*4+12+2*10/2-30$
+        para (i = 0$ i < numeroVeces$ i++) {
+            global.crearEntrada(identsiicador_REGEX, i*1+"ERROR"+i*5)$
+        }
+        
+        Cadena lex$
+        Caracter c = 'a'$
+        i = 0$
+        mientras(i < 5){  // REPETIR (10)
+            //Cadena casteo = "Caracter_"+c++$
+            Cadena casteo = "Caracter_"+c + 1$
+            global.crearEntrada(nombreRegex2, casteo)$
+            i = i + 1$
+        }
+        Cadena nombreR3 = "ExpresionR3"$
+        global.crearRegex(nombreR3, " {letra} ?")$
+        Cadena merep = "me repito.."$
+        entero numero1 = 0$
+        hacer {
+            Cadena casteo = merep+numero1+" , "$
+            global.crearEntrada(nombreR3, casteo)$
+            numero1++$
+        } mientras (numero1 < 11)$
+        
+        global.guardarArchivo()$
+    }
+    
+    Principal(){
+        Archivo1DERLocal("SalidasFuncDER/Salida1.der", 10)$
+        IMPrimIR("Arhivo 1 generado con exito")$
+        Archivo2DERGlobal("SalidasFuncDER/Salida2.der")$
+        IMPrimIR("Arhivo 2 generado con éxito")$
+        
+        IMPrimIR("Repetir archivo 1")$
+        Archivo2DERGlobal("SalidasFuncDER/Salida3.der")$
+        IMPrimIR("Arhivo 3 generado con exito")$
+    }
+    
+}

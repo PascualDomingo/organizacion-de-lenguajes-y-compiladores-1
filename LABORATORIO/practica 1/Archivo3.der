@@ -1,0 +1,26 @@
+{
+
+CONJ: mayus -> A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z;
+CONJ: sig -> !~};
+CONJ: minus -> a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
+CONJ: letra -> a~z;
+CONJ: digito -> 0~9;
+CONJ: posibles -> P, C, O; 
+
+ExpReg1 -> . {sig} . {sig} {sig};
+ExpresionReg2 -> . {digito} . "." + {digito};
+RegEx3 -> . {digito} * | "_" | {letra} {digito};
+ EXP5  -> . \" . + | [^\"] \"  \";
+ Pl ->  . {posibles} . ? "-"  . {digito} . {digito} . {digito}  . {letra}  . {letra} {letra};
+%%
+%%
+ExpReg1 : "!}!";
+ExpresionReg2 : "34.44";
+EXP4 : " cadena de entrada con \"comillas\" ";
+EXP5 : " cadena de entrada con \"comillas\" ";
+P1 : "P-385fde"; // bueno
+P1 : "P388fdc"; // bueno
+P1 : "P38df8c"; // malo
+P1 : "P-38df8k";  // malo
+P1 : "K-385ffk";  // malo
+}

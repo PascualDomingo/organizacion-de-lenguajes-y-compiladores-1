@@ -1,0 +1,86 @@
+clase miclase{
+	publico arreglo entero arr0 [1+2] = {5, 10, 15}$
+	arreglo entero arr0, var1 [2][3] = 
+	{
+		{1*1, 1*2, 1*3},
+		{2*1, 2*2, 2*3}
+	}$
+
+	arreglo entero arr3 [2][3][3] =
+	{
+		{
+			{1, 12, 13},
+			{21, 22, 23},
+			{311, 322, 333}
+		},
+		{
+			{5, 10, 15},
+			{5*2, 10*2, 15*2},
+			{5, 10, 15}
+		}
+	}$
+
+	principal(){
+		entero var0 = 50$
+		imprimir(arr0[2])$	
+	}
+}
+
+********************************************************************************
+clase miclase{
+	arreglo entero arr3 [3][3][3] =
+	{
+		{
+			{1, 12, 13},
+			{21, 22, 23},
+			{311, 322, 333}
+		},
+		{
+			{5, 10, 15},
+			{5*2, 10*2, 15*2},
+			{5, 10, 15}
+		},
+		{
+			{5, 10, 15},
+			{5*2, 10*2, 15*2},
+			{5, 10, 15}
+		}
+	}$
+	arr3[0][0][0] = 111$
+	arr3[2][2][2] = 333$
+
+	principal(){
+		entero var0 = 50$
+		
+
+	}
+}
+
+****************************************************************
+
+clase Nodo{
+	publico void ejecutar(){
+		imprimir("felicidades, entraste a la clase nodo")$
+	}
+}
+
+clase home{
+	Nodo raiz$
+	principal(){
+		entero var = 5$
+		raiz = Nuevo Nodo()$
+		raiz.ejecutar()$
+	}
+}
+
+
+************************************************
+
+clase miclase{
+	publico arreglo entero arr0 [1+2] = {5, 10, 15}$
+
+
+	principal(){
+		entero var0 = arr0[2]$
+}
+}

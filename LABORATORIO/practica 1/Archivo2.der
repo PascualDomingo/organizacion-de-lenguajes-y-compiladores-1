@@ -1,0 +1,21 @@
+
+{
+
+CONJ: letra -> a~z;
+CONJ: digito -> 0~9;
+CONJ: mayus -> A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z;
+CONJ: sig -> !~};
+CONJ: minus -> a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
+
+// COMENTARIO
+
+tokenCuenta -> . {minus} . {sig} . {digito} + . {minus} . {sig} {digito};
+cadena -> . \' . + {letra} \';
+fecha -> . {digito} . {digito} . "/" . {digito} . {digito} . "/" . {digito} . {digito} . {digito} {digito};
+
+%%
+%%
+cadena : "'cadena'";
+tokenCuenta : "a=1b=2c=3";
+fecha : "07/10/20";
+}

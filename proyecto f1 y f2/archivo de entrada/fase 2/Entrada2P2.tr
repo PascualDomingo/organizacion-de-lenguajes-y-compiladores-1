@@ -1,0 +1,50 @@
+clase Cuentas{
+	
+	<- Aquí empieza toda la ejecución ->
+	void llamar(){
+        cadena idArchivo = "Archivo.XML";
+        Cuenta c1 = CrearCuenta(idArchivo, "ExpReg1") $
+        Cuenta c2 = CrearCuenta(idArchivo, "ExpReg2") $
+
+        Booleano cuentaValida = c1.verificarCuenta() $
+            SI (cuentaValida && c2.verificarCuenta()){
+                entero monto = 100$
+                C1.depositarCuenta(monto+250.1) $ // 350.1
+                C2.depositarCuenta(monto+10) $ //110
+
+                C1.restarCuenta(50.1) $ // tiene 300.1
+                C2.restarCuenta(110 - monto) $ //tiene 100
+
+
+                Cadena valorString = C1.imprimirTransaccionesCuenta() $
+                Imprimir("Transacciones.C1................")$
+                Imprimir(valorString)$
+
+                Imprimir("Transacciones.C2................\n"+C2.imprimirTransaccionesCuenta())$
+
+                doble montodeC1 = C1.consultarCuenta() $
+                Imprimir("Monto C1........300.1........")$ // tiene 300.1
+                Imprimir(montodeC1)$
+
+                doble montodeC2 = C2.consultarCuenta() $
+                Imprimir("Monto C2.........100.......")$ //tiene 100
+                Imprimir(montodeC2)$
+
+                Transferir( C1, C2, 100)$
+
+                montodeC1 = C1.consultarCuenta() $
+                Imprimir("Nuevo Monto C1.......200.1.........")$ 
+                Imprimir(montodeC1)$
+
+                montodeC2 = C2.consultarCuenta() $
+                Imprimir("Nuevo Monto C2....... 200.......")$ 
+                Imprimir(montodeC2)$
+
+
+            }sino{
+                Imprimir("UNA DE LAS CUENTAS NO ES VALIDA")$
+            }
+
+	}
+
+}

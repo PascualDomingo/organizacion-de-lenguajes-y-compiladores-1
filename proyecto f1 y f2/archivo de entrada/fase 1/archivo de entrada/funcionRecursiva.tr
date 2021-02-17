@@ -1,0 +1,70 @@
+clase Entrada2{
+	
+	<- aqui empieza toda la ejecucion->
+
+	principal(){
+		FuncionRecursiva f = nuevo FuncionRecursiva()$
+		f.imprimir_fibonacci(20)$
+		f.Hanoi(4, 1, 2, 3)$
+		f.ParoImpar(15)$
+		f.ParoImpar(20)$
+	}
+}
+
+
+
+clase FuncionRecursiva{
+	
+	//<---------------	funcion de fibonacci	--------------------->
+
+	publico void imprimir_fibonacci(entero valor){
+		imprimir("Resultado de fibonacci("+ valor +") = " + fibonacci(valor))$
+	}
+
+	publico entero fibonacci(entero n){
+		si(n == 0){
+			retornar 0$
+		}
+		si(n == 1){
+			retornar 1$
+		}
+		retornar fibonacci(n-1) + fibonacci(n-2) $
+	}
+
+
+	//<------------	funcion de las torres de Hanoi 	------------------>
+	publico void Hanoi(entero discos, entero origen, entero auxiliar, entero destino){
+		si(discos == 1){
+			imprimir ("mover discos de " + origen + " a " + destino)$
+		}sino{
+			Hanoi(discos-1, origen, destino, auxiliar)$
+			imprimir ("mover discos de " + origen + " a " + destino)$
+			Hanoi(discos-1, auxiliar, origen, destino)$
+		}
+	}
+
+	//<-------------	funcion que calcula si un numero es par o impar 	------------>
+	publico void ParoImpar(entero a){
+		si(par(a) == 1){ //el numero es par
+			imprimir("el numero "+a+" es par")$
+		}sino{
+			imprimir("el numero "+a+" es impar")$
+		}
+	}
+
+	publico entero par(entero nump){
+		si(nump == 0){
+			retornar 1$
+		}
+		retornar impar(nump - 1)$
+	}
+
+	publico entero impar(entero numi){
+		si(numi == 0){
+			retornar 0$
+		}
+		retornar par(numi -1)$
+	}
+
+
+}

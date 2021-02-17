@@ -1,0 +1,186 @@
+package analizador; // Paquete
+import java_cup.runtime.Symbol;
+import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import objetos.ExpresionRegular;
+import objetos.Conjunto;
+import objetos.Nodo;
+import objetos.Nhojas;
+parser code
+{:
+   
+
+    public static Nodo padre;
+    public String salida = "" ; // Aquí guardaremos nuestra resultado.
+    public static String errorSin = "";
+    public String DescripcinError = "El analizador se recupero tras el error\nError en la Línea";
+    public void syntax_error(Symbol s){
+        System.err.println("El analizador se recupero tras el error\nError en la Línea " + (s.right+1) +" Columna "+(s.left+1)+ ". Identificador "+s.value + " no reconocido." );
+    }
+
+
+/**Metodo al que se llama en el momento en que ya no es posible una recuperación de
+errores.*/
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{
+        String error = "El analizador No se recupero, ERROR";
+       // TErrorSintactico datos = new TErrorSintactico(error, fila, columna, identi);
+        //tbErrorSintactico.add(datos);
+        setSalida(error);
+    }
+
+    public void setSalida(String cadena) // Metodo que guarda nuestro resultado salida
+    {
+        salida = cadena;
+    }
+
+// String FaleName = cadena.replaceAll("\"", ""); //elimina comillas al string antes ""id"" ahora "id"
+/* *****************   CONTADOR DE PALABRAS A IMPRIMIR    *****************/
+    private String palabras(String valor, int posI, int contPalabras){
+        String concatenarPalabres = "";
+        int cont = 0;
+        String[] misPalabras = valor.split(" ");
+        for (int i = posI-1; i < misPalabras.length; i++) {
+            if(cont == contPalabras){
+                break;
+            }
+            cont++;
+            concatenarPalabres += misPalabras[i]+" ";
+        }
+        return concatenarPalabres;
+    }
+
+    /*******************  FIN DE ESTE BLOQUE   *************************/
+    
+:}
+
+/*  terminales palabras reservadas   */
+terminal String conj;
+terminal String flecha;
+terminal String simSeparacion;
+
+
+/*ER*/
+terminal String letra;
+terminal String entero;
+terminal String decimal;
+terminal String id; 
+terminal String cadena;
+terminal String str;
+
+
+/*---SIMBOLOS---*/
+terminal String admira;
+terminal String comDob;
+terminal String numeral;
+terminal String dolar;
+terminal String porsentaje;
+terminal String ampersand;
+terminal String comSim;
+terminal String Apar;
+terminal String Cpar;
+terminal  por;
+terminal  mas;
+terminal String cma;
+terminal String menos;
+terminal  punto;
+terminal String div;
+terminal String dosp;
+terminal String pyc;
+terminal String menorQ;
+terminal String eq;
+terminal String mayorQ;
+terminal  interroga;
+terminal String arroba;
+terminal String corA;
+terminal String corC;
+terminal String slash;
+terminal String potencia;
+terminal String guinB;
+terminal String acentoG;
+terminal String Allav;
+terminal String Cllav;
+terminal  barra;
+terminal String tilde;
+terminal String salto;
+terminal String tExtraer;
+
+
+
+
+
+/*  Aquí están los no Terminales  */
+non terminal Nodo INICIO;
+non terminal Nodo LID;
+non terminal Nodo ID;
+non terminal Nodo EXTRAER;   
+
+
+
+/* Definición de la gramatica */
+start with INICIO; // indicamos con qué producción debe empezar la gramatica.
+
+                /**********     INICIO DE LA gramatica      *********/
+
+INICIO::= EXTRAER;
+
+EXTRAER::= tExtraer Apar entero:pIni cma entero:conPal cma LID:pala Cpar pyc 
+        {:
+            Nodo nd = new Nodo();
+            nd.posI = Integer.parseInt(pIni);
+            nd.contPalabras = Integer.parseInt(conPal);
+            if(nd.contPalabras <= 0){
+                nd.ErrorSemantico = "error semantico: la cantidad de palabras debe ser mayor \n o igual a 1 \n";
+                setSalida(nd.ErrorSemantico);
+            }else{
+                if(nd.posI <= 0){
+                    nd.ErrorSemantico = "error semantico: se recupero el error, la posicion inicial \n debe ser mayor a 0; \n";
+                    nd.posI = 1;
+                    setSalida(nd.ErrorSemantico +"\n\n**********************************\n\n"+ 
+                            palabras(pala.valor, nd.posI, nd.contPalabras));
+                }else{
+                    setSalida(palabras(pala.valor, nd.posI, nd.contPalabras));
+                }
+            }
+            RESULT = nd;
+        :}
+;
+LID::= LID:a cma ID:b 
+        {:
+            Nodo nd = new Nodo();
+            nd.valor = a.valor+" "+b.valor;
+            System.out.println(nd.valor);
+            nd.controlPos = a.controlPos + b.controlPos;
+            RESULT = nd;
+        :}
+    | ID:a 
+        {:
+            Nodo nd = new Nodo();
+            nd.valor = a.valor;
+            nd.controlPos = a.controlPos;
+            RESULT = nd;
+        :}
+    ;
+
+ID::= entero:a 
+        {:
+            Nodo nd = new Nodo();
+            nd.valor = a;
+            RESULT = nd;
+        :}
+    | id:a 
+        {:
+            Nodo nd = new Nodo();
+            nd.valor = a;
+            RESULT = nd;
+        :}
+    | str:a
+        {:
+            Nodo nd = new Nodo();
+            nd.valor = a;
+            RESULT = nd;
+        :}
+    ; 
+
+
+

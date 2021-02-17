@@ -1,0 +1,19 @@
+digraph G { 
+
+tbl [ 
+ shape=plaintext 
+ label=< 
+ <table border='0' cellborder='1'  cellspacing='0'> 
+<tr><td>Hoja</td><td>identificador</td><td>Siguientes</td></tr> 
+<tr><td>sig</td><td>1</td><td>2</td></tr> 
+<tr><td>sig</td><td>2</td><td>3</td></tr> 
+<tr><td>sig</td><td>3</td><td>7</td></tr> 
+<tr><td>#</td><td>7</td><td>-----</td></tr> 
+</table> 
+ >];
+label ="
+
+ nombre: ExpReg1" ;
+ fontsize=20;
+
+ }

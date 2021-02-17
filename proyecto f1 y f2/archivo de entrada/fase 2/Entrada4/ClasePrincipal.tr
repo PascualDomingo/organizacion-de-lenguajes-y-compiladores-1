@@ -1,0 +1,8 @@
+importar "ClaseBasica.tr"$
+
+clase ClasePrincipal {
+   Principal(){
+        ClaseBasica b1 = nuevo ClaseBasica()$
+        b1.ejecutar()$
+    }
+}

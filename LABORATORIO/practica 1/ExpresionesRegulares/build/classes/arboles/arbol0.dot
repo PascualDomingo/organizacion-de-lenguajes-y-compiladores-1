@@ -1,0 +1,63 @@
+digraph G { 
+
+"6
+ anulable: N
+ primeros: 1
+ ultimos: 7
+."->"5
+ anulable: N
+ primeros: 1
+ ultimos: 3
+." 
+"5
+ anulable: N
+ primeros: 1
+ ultimos: 3
+."->"1
+ anulable: N
+ primeros: 1
+ ultimos: 1
+sig" 
+"5
+ anulable: N
+ primeros: 1
+ ultimos: 3
+."->"4
+ anulable: N
+ primeros: 2
+ ultimos: 3
+." 
+"4
+ anulable: N
+ primeros: 2
+ ultimos: 3
+."->"2
+ anulable: N
+ primeros: 2
+ ultimos: 2
+sig" 
+"4
+ anulable: N
+ primeros: 2
+ ultimos: 3
+."->"3
+ anulable: N
+ primeros: 3
+ ultimos: 3
+sig" 
+"6
+ anulable: N
+ primeros: 1
+ ultimos: 7
+."->"7
+ anulable: N
+ primeros: 7
+ ultimos: 7
+#" 
+
+label ="
+
+ nombre: ExpReg1" ;
+ fontsize=20;
+
+ }

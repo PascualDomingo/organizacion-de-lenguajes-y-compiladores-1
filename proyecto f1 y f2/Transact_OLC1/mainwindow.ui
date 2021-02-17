@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1157</width>
+    <height>836</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Organizacion de Lenguajes y compiladores 1</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QTabWidget" name="tabla_simbolo">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>560</y>
+      <width>1161</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>consola</string>
+     </attribute>
+     <widget class="QPlainTextEdit" name="txtConsola">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1151</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>aakar</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>tabla simbolo</string>
+     </attribute>
+     <widget class="QTableWidget" name="tblVariables">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1151</width>
+        <height>181</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1161</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>pestaña</string>
+     </attribute>
+     <widget class="QPlainTextEdit" name="txtEditor">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1151</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>aakar</family>
+        <pointsize>13</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>pestaña</string>
+     </attribute>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1157</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuarchivo">
+    <property name="title">
+     <string>archivo</string>
+    </property>
+    <addaction name="actioncrear"/>
+    <addaction name="actionabrir"/>
+    <addaction name="actionguardar"/>
+    <addaction name="actionguardar_como"/>
+    <addaction name="actioncrear_pesta_a"/>
+    <addaction name="actioneliminar_pesta_a"/>
+   </widget>
+   <widget class="QMenu" name="menureportes">
+    <property name="title">
+     <string>reportes</string>
+    </property>
+    <addaction name="actionerror_lexico"/>
+    <addaction name="actionerror_sintactico"/>
+    <addaction name="actionerror_semantico"/>
+    <addaction name="actionAST"/>
+   </widget>
+   <widget class="QMenu" name="menucompilar">
+    <property name="title">
+     <string>compilar</string>
+    </property>
+    <addaction name="actionejecutar"/>
+   </widget>
+   <addaction name="menuarchivo"/>
+   <addaction name="menureportes"/>
+   <addaction name="menucompilar"/>
+  </widget>
+  <action name="actioncrear">
+   <property name="text">
+    <string>crear</string>
+   </property>
+  </action>
+  <action name="actionabrir">
+   <property name="text">
+    <string>abrir</string>
+   </property>
+  </action>
+  <action name="actionguardar">
+   <property name="text">
+    <string>guardar</string>
+   </property>
+  </action>
+  <action name="actionguardar_como">
+   <property name="text">
+    <string>guardar como</string>
+   </property>
+  </action>
+  <action name="actioncrear_pesta_a">
+   <property name="text">
+    <string>crear pestaña</string>
+   </property>
+  </action>
+  <action name="actioneliminar_pesta_a">
+   <property name="text">
+    <string>eliminar pestaña</string>
+   </property>
+  </action>
+  <action name="actionerror_lexico">
+   <property name="text">
+    <string>error lexico</string>
+   </property>
+  </action>
+  <action name="actionerror_sintactico">
+   <property name="text">
+    <string>error sintactico</string>
+   </property>
+  </action>
+  <action name="actionerror_semantico">
+   <property name="text">
+    <string>error semantico</string>
+   </property>
+  </action>
+  <action name="actionAST">
+   <property name="text">
+    <string>AST</string>
+   </property>
+  </action>
+  <action name="actionejecutar">
+   <property name="text">
+    <string>ejecutar</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

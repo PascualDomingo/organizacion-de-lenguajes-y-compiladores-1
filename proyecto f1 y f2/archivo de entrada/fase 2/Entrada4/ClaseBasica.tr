@@ -1,0 +1,131 @@
+
+clase Animal {
+    entero  edad$
+    doble  peso$
+    publico entero  getInformacionMascota(){
+        imprimir("Metodo en la clase Animal")$
+        retornar  0$
+    }
+}
+clase Persona {
+    cadena  nombre$
+    cadena  apellido$
+    entero edad$
+    caracter genero$
+    
+    void registrarPersona(cadena  n, cadena  a, entero e, caracter g){
+        nombre = n$
+        apellido = a$
+        edad = e$
+        genero = g$
+    }
+}
+
+clase Gato extender Animal {
+    cadena nombre$
+    Persona propietario$
+    Animal siguiente$
+    publico void asignarPropietario(Persona p ){
+        propietario = p$
+    }
+}
+
+clase Perro extender Animal{
+    cadena nombre$
+    Persona propietario$
+    Animal siguiente$
+    publico void asignarInformacionPrimaria(cadena n1, entero ed, doble pes){
+        nombre = n1$
+        edad =ed$
+        peso = pes$
+    }
+    void asignarPropietario(Persona p ){
+        propietario = p$
+    }
+    
+    sobrescribir publico entero getInformacionMascota(){
+        cadena genero = ""$
+        SI(propietario.genero == 'F'){
+            genero = "FEMENINO"$
+        }SINO{
+            genero = "MASCULINO"$
+        }
+        imprimir( "==========================")$
+        imprimir( "*       MASCOTA       *")$
+        imprimir("==========================")$
+        imprimir( "     nombre: "+nombre+"     ")$
+        imprimir( "     edad: "+edad+"     ")$
+        imprimir("     peso: "+peso+"     ")$
+        imprimir( "==========================")$
+        imprimir("*       PROPIETARIO       *")$
+        imprimir("==========================")$
+        imprimir("     nombre: "+propietario.nombre+" "+propietario.apellido+"     ")$
+        imprimir( "     edad: "+propietario.edad+"     ")$
+        imprimir( "     genero: "+genero+"     ")$
+        imprimir("==========================")$
+        retornar 1$
+    }
+}
+
+clase ClaseBasica {
+    
+    arreglo caracter cadena1[5]= {'I','P', 'M','O','C'}$
+   
+    publico void ejecutar(){
+        entero primeroRecursivo = potencia(4,4)$
+        comprobar(primeroRecursivo){
+            caso 256:
+                imprimir("Recursivo Potencia Bieen +5")$
+                salir$
+            defecto:
+                imprimir("Error Recursivo Potencia")$
+        }
+
+        cadena cadenaVolteada = voltearCadena("",4)$
+        imprimir(cadenaVolteada)$
+        comprobar(cadenaVolteada){
+            caso "COMPI":
+                        imprimir("Recursivo Voltear Cadena Bieen +5")$
+                        salir$
+            defecto:
+                              imprimir("Error Recursivo Voltear Cadena")$
+
+
+        }
+        ////// OBJETOS
+        Persona persona1 = nuevo Persona()$
+        persona1.registrarPersona("Alba", "Chinchilla",21,'F')$
+        
+        Perro perrito1 = nuevo Perro()$
+        perrito1.asignarInformacionPrimaria("Panqueque", 1, 10)$
+        perrito1.asignarPropietario(persona1)$
+        entero retornoPerrito =perrito1.getInformacionMascota()$
+        
+        Gato gato1 = nuevo Gato()$
+        entero retornoGato =gato1.getInformacionMascota()$
+        Si(retornoPerrito == 1 && retornoGato == 0){
+            imprimir("Correcto metodos sobre escribir + 10")$
+        }Sino{
+
+            imprimir("Error en los metodos de sobre escribir + 10")$
+        }
+        
+    }    
+    publico entero potencia(entero base, entero exponente){
+        Si(exponente==0){
+            retornar 1$
+            
+        }Sino{
+            retornar (base * potencia(base, exponente - 1))$
+        }
+    }
+    
+     cadena voltearCadena(cadena str, entero posActual){
+        str = str + cadena1[posActual]$
+        Si(posActual == 0){
+            retornar str$
+        }
+        retornar voltearCadena(str,posActual-1)$
+        
+    } 
+}

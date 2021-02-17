@@ -1,0 +1,38 @@
+﻿incluir("Entrada3P2.fi")$
+Clase ArbolBinario{
+	
+	<- Aquí empieza la ejecución ->
+	
+	Principal(){
+		Arbol arbol = new Arbol()$ //Creo un nuevo árbol
+
+        arbol.constructor(100)$ //Llamo al constructor de la clase Arbol y defino la raiz el árbol
+        arbol.agregarNodo(70)$
+        arbol.agregarNodo(130)$
+        arbol.agregarNodo(40)$
+        arbol.agregarNodo(115)$
+        arbol.agregarNodo(200)$
+        arbol.agregarNodo(93)$
+        arbol.agregarNodo(150)$
+        arbol.agregarNodo(201)$
+        arbol.agregarNodo(10)$
+        arbol.agregarNodo(5)$
+        arbol.agregarNodo(71)$
+        arbol.agregarNodo(73)$
+        arbol.agregarNodo(74)$
+        arbol.agregarNodo(99)$
+
+        //Imprimir el recorrido preOrden
+        Imprimir("<--------------------- Recorrido PreOrden --------------------->")$
+        arbol.imprimir_preOrden()$
+        Imprimir("<--------------------- Recorrido PostOrden --------------------->")$
+        arbol.imprimir_postOrden()$        
+        //Imprimir el recorrido enOrden
+        Imprimir("<--------------------- Recorrido EnOrden --------------------->")$
+        arbol.imprimir_enOrden()$        
+	}
+
+}
+
+
+

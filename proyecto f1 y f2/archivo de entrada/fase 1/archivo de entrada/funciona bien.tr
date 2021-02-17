@@ -1,0 +1,68 @@
+clase Entrada1 {
+    entero var1 = 1$
+    entero punteo = 0$
+
+Principal() {
+    imprimir("-----------------CALIFICACION-----------------")$
+    entero var1 = 0$
+    //Verificar ambitos, se toma con prioridad la variable local ante la global.
+    Si (var1 != 0)
+    {
+        imprimir("No se toma con prioridad la variable local ante la global")$
+        imprimir("Perdiste 5 puntos :c")$
+    }
+    Sino{
+        punteo = punteo + 5$
+    }
+
+    //Sección de declaracion de variables
+    Declaracion()$
+
+    //seccion de manejo de ámbitos 2
+    entero amb1 = 5$
+    Ambitos2()$
+
+    //Sección de expresiones aritméticas
+    Aritmeticas()$
+
+    //Seccion de expresiones lógicas
+    Logicas()$
+
+    //Seccion de expresiones relacionales
+    Relacionales()$
+    //punteo final
+    imprimir("Punteo Final: "+punteo)$
+}
+
+
+//*********************************************** DECLARACION *******
+
+publico void Declaracion(){
+    <-
+      /*  SALIDA ESPERADA:
+            ========= Metodo Declaracion =========
+            Voy a ganar Compiladores 1 :D
+            ======================================
+      */
+    
+    ->
+    imprimir("========= Metodo Declaracion =========")$
+    entero n1, n2, n3, n4 = 1$
+    cadena str1, str2, str3, str4 = "Voy a ganar Compiladore"$
+    doble db1, db2, db3, db4 = 0.0$
+    caracter chr1, chr2, chr3, chr4 = 's'$
+    //si n modificar la asignación
+    si (db1 == db4){
+        imprimir(str1 + chr2 +" " +n3+" :D")$
+    }sino {
+        imprimir("Problemas en el metodo declaracion :(")$
+    }
+    imprimir("======================================")$
+    punteo = punteo + 5$
+}
+
+/*********************** AMBITO 2  ************/
+
+
+}
+

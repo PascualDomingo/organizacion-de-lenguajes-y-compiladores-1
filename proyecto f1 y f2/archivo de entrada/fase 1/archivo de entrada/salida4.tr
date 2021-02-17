@@ -1,0 +1,117 @@
+-----------------CALIFICACION-----------------
+========= Metodo Declaracion =========
+Voy a ganar Compiladores 1 :D
+======================================
+==============Ambitos 2===============
+Desde ambito2
+======================================
+==============Aritmeticas=============
+Hola COMPI
+El valor de  n1 = 52.1
+El valor de n3 = 70
+Operaciones Aritmeticas 1: valor esperado:   a)62   b)0   c)-19   d)256   resultados>
+a) 62
+b) 0
+c) -19
+d) 256
+Operaciones aritmeticas 1 bien :D
+Operaciones Aritmeticas 2: valor esperado>-20  41, resultado>
+-20
+41
+Operaciones aritmeticas 2 bien :D
+======================================
+==============Logicas1=============
+Bien primera condicion:)
+Bien segunda condicion:)
+======================================
+==============Logicas2=============
+Not y Ands Correctos
+Nots y Ors correectos
+======================================
+==============Logicas3=============
+NANDS Correctos
+NORS correectos
+======================================
+==============relacionales1=============
+Salida incorrecta!!
+======================================
+vas bien, animo :D
+============Relacionales2=============
+Salida CORRECTA en relacionales2!!
+======================================
+==============Para Calificar Ciclos=============
+El factorial de: 7 = 7 * 6 * 5 * 4 * 3 * 2 * 1 = 5040$
+El factorial de: 6 = 6 * 5 * 4 * 3 * 2 * 1 = 720$
+El factorial de: 5 = 5 * 4 * 3 * 2 * 1 = 120$
+El factorial de: 4 = 4 * 3 * 2 * 1 = 24$
+El factorial de: 3 = 3 * 2 * 1 = 6$
+El factorial de: 2 = 2 * 1 = 2$
+El factorial de: 1 = 1 = 1$
+El factorial de: 0 = 1$
+ 1
+ 1 2
+ 1 2 3
+ 1 2 3 4
+ 1 2 3 4 5
+ 1 2 3 4 5 6
+ 1 2 3 4 5 6 7
+ 1 2 3 4 5 6 7 8
+Si la figura es un triangulo de numeros + 5 :3
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . * * * . . . . . . . * * * . . . . . . . . . 
+. . . . . . . * * * * * * * . . . * * * * * * * . . . . . . . 
+. . . . . * * * * * * * * * * * * * * * * * * * * * . . . . . 
+. . . . . * * * * * * * * * * * * * * * * * * * * * . . . . . 
+. . . . * * * * * * * * * * * * * * * * * * * * * * * . . . . 
+. . . . * * * * * * * * * * * * * * * * * * * * * * * . . . . 
+. . . * * * * * * * * * * * * * * * * * * * * * * * * * . . . 
+. . . * * * * * * * * * * * * * * * * * * * * * * * * * . . . 
+. . . * * * * * * * * * * * * * * * * * * * * * * * * * . . . 
+. . . . * * * * * * * * * * * * * * * * * * * * * * * . . . . 
+. . . . * * * * * * * * * * * * * * * * * * * * * * * . . . . 
+. . . . . * * * * * * * * * * * * * * * * * * * * * . . . . . 
+. . . . . * * * * * * * * * * * * * * * * * * * * * . . . . . 
+. . . . . . . * * * * * * * * * * * * * * * * * . . . . . . . 
+. . . . . . . . * * * * * * * * * * * * * * * . . . . . . . . 
+. . . . . . . . . * * * * * * * * * * * * * . . . . . . . . . 
+. . . . . . . . . . * * * * * * * * * * * . . . . . . . . . . 
+. . . . . . . . . . . * * * * * * * * * . . . . . . . . . . . 
+. . . . . . . . . . . . * * * * * * * . . . . . . . . . . . . 
+. . . . . . . . . . . . . * * * * * . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . * * * . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . * . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+Si la figura es un corazon +10 <3
+                    * 
+                  * * * 
+                * * * * * 
+                * * * * * 
+              * * * * * * * 
+            * * * * * * * * * 
+            * * * * * * * * * 
+          * * * * * * * * * * * 
+        * * * * * * * * * * * * * 
+        * * * * * * * * * * * * * 
+      * * * * * * * * * * * * * * * 
+    * * * * * * * * * * * * * * * * * 
+                * * * * * 
+                * * * * * 
+                * * * * * 
+Si la figura es un Arbol +10 <3
+============Validar Continuar y Romper===========
+El numero: 0 es par
+El numero: 1 es impar
+El numero: 2 es par
+El numero: 3 es impar
+El numero: 4 es par
+me voy a saltar el 5 porque hay un continue :3
+El numero: 6 es par
+Hay un break para el numero 7 :3
+Si el ultimo numero impreso es un 7, tienes un +5 :D
+======================================
+Esto se va a imprimir 2 veces :3
+Esto se va a imprimir 2 veces :3
+======================================
+Punteo Final: 60

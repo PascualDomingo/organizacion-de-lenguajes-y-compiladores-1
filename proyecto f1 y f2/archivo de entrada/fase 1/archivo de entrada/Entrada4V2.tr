@@ -1,0 +1,605 @@
+clase Entrada1 {
+    entero var1 = 1$
+    entero punteo = 0$
+
+    principal() {
+    imprimir("-----------------CALIFICACION-----------------")$
+    entero var1 = 0$
+    //Verificar ámbitos, se toma con prioridad la variable local ante la global.
+    Si (var1 != 0)
+    {
+        imprimir("No se toma con prioridad la variable local ante la global")$
+        imprimir("Perdiste 5 puntos :c")$
+    }
+    Sino{
+        punteo = punteo + 5$
+    }
+
+    //Sección de declaracion de variables
+    Declaracion()$
+
+    //seccion de manejo de ámbitos 2
+    entero amb1 = 5$
+    Ambitos2()$
+
+    //Sección de expresiones aritméticas
+    Aritmeticas()$
+
+    //Seccion de expresiones lógicas
+    Logicas()$
+
+    //Seccion de expresiones relacionales
+    Relacionales()$
+    //punteo final
+    imprimir("Punteo Final: "+punteo)$
+}
+
+
+
+//fin de la clase
+
+
+
+
+publico void Declaracion(){
+    <-
+       SALIDA ESPERADA:
+            ========= Metodo Declaracion =========
+            Voy a ganar Compiladores 1 :D
+            ======================================
+    
+    ->
+    imprimir("========= Metodo Declaracion =========")$
+    entero n1, n2, n3, n4 = 1$
+    cadena str1, str2, str3, str4 = "Voy a ganar Compiladore"$
+    doble db1, db2, db3, db4 = 0.0$
+    caracter chr1, chr2, chr3, chr4 = 's'$
+    //si n modificar la asignación
+    si (db1 == db4){
+        imprimir(str1 + chr2 +" " +n3+" :D")$
+    }sino {
+        imprimir("Problemas en el metodo declaracion :(")$
+    }
+    imprimir("======================================")$
+    punteo = punteo + 5$
+}
+
+publico void Ambitos2(){
+    //debería lanzar un error, cualquiera
+    //comentar luego de que lanze el error
+    //imprimir(amb1)$
+    cadena amb1 = "Desde ambito2"$
+    imprimir("==============Ambitos 2===============")$
+    punteo = punteo + 5$
+    imprimir(amb1)$
+    imprimir("======================================")$
+
+}
+
+publico void Aritmeticas(){
+    //suma de strings con caracteres
+    imprimir("==============Aritmeticas=============")$
+    cadena art1 = "Hola "+'C'+""+'O'+""+'M'+""+'P'+""+'I'$
+    imprimir(art1)$
+    si (art1=="Hola COMPI"){
+        punteo = punteo + 3$
+    }sino {
+        imprimir("Perdiste 3 puntos en suma de cadena y caracter :c")$
+    }
+
+    doble n1 = 0.0 + verdadero + verdadero + 1 + 0.1 + '1'$
+    imprimir("El valor de  n1 = "+n1)$
+    si (n1 == 52.1){
+        punteo = punteo + 3$
+    }sino {
+        imprimir("Perdiste 3 puntos en suma de enteros booleanos y caracteres :c")$
+    }
+
+    entero n2 = '2' - '1' - 1$
+    si (n2 == 0){
+        punteo = punteo + 2$
+    }sino {
+        imprimir("Perdiste 2 puntos en la resta de caracteres :c")$
+    }
+
+    doble n4 = (5750 * 2) - 11800 + 1.0$
+    doble n3 = (((3 * 3) + 4) - 80 + 40.00 * 2 + 358.50 - (29 / 14.50)) - (0.50) + n4$
+    imprimir("El valor de n3 = "+n3)$
+    Si (n3 == 70)
+    {
+        punteo = punteo + 3$
+    }
+    sino 
+    {
+        imprimir("Perdiste 3 puntos :c ")$
+    }
+    
+    operacionesBasicas()$
+    operacionesAvanzadas()$
+    imprimir("======================================")$
+    
+}
+
+publico void operacionesBasicas(){
+    imprimir("Operaciones Aritmeticas 1: valor esperado:   a)62   b)0   c)-19   d)256   resultados>")$
+    doble a = (20-10+8/2*3+10-10-10+50)$
+    doble b = (50/50*50+50-100+100-100)$
+    doble c = (100/20*9-78+6-7+8-7+7*1*2*3/3)$
+    doble d = (2^(20/5*2))$
+    imprimir("a) " +a)$
+    imprimir("b) " +b)$
+    imprimir("c) " +c)$
+    imprimir("d) " +d)$
+    si ((a==62 && b ==0) && (c == -19 && d ==256)){
+        imprimir("Operaciones aritmeticas 1 bien :D")$
+        punteo = punteo + 5$
+    }sino {
+        imprimir("Error para las operaciones basicas :(")$
+    }
+}
+
+publico void operacionesAvanzadas(){
+    entero aritmetica1 = 2$
+    entero aritmetica2 = -10$
+    imprimir("Operaciones Aritmeticas 2: valor esperado>-20  41, resultado>")$
+    entero aritmetica3 = aritmetica2*aritmetica1$
+    imprimir(aritmetica3+"")$
+    doble aritmetica1 = aritmetica3/aritmetica1+50^2/50+50*2-100+100/100-0$
+    imprimir(aritmetica1+"")$
+    si (aritmetica3 == -20 && aritmetica1 == 41){
+        imprimir("Operaciones aritmeticas 2 bien :D")$
+        punteo = punteo + 5$
+    }sino {
+        imprimir("Error Operaciones Aritmeticas")$
+    }
+}
+
+
+publico void Logicas(){
+     imprimir("==============Logicas1=============")$
+    si (!!!!!!!!!!!!!!!!!!!!!!true){
+        punteo = punteo + 1$
+        imprimir("Bien primera condicion:)")$
+    }sino {
+        imprimir("Perdiste 1 punto :c")$
+    }
+
+    si (((true && true) || ((false && false) && (false == true))) || (!true)){
+        punteo = punteo + 1$
+        imprimir("Bien segunda condicion:)")$
+    }sino {
+        imprimir("Perdiste 1 puntos :c")$
+    }
+    imprimir("======================================")$
+    Logicas2()$
+}
+
+
+publico void Logicas2(){
+    entero n0 = 16$
+         imprimir("==============Logicas2=============")$
+
+    si (!((!(n0 == 16 && false==true) && (!(true))))){
+            imprimir("Not y Ands Correctos")$
+                        punteo = punteo +3$
+
+    }sino {
+                imprimir("No funcionan nots y ands :(")$
+        }
+    doble n1 = n0 /16$
+    n1 = n1 + verdadero$
+        booleano condicion1 = n1 !=2$ //esto es falso
+        doble aritmetica1 = n0/16+ ((!(true||false)))$ // aritmetica1 = 1
+        booleano condicion2 = aritmetica1 == n1$ //falso
+        booleano condicion3 = !true$ //falso
+        
+    si (!(!(!(condicion1||condicion2) || condicion3 ))){
+        imprimir("Nots y Ors correectos")$
+                punteo = punteo + 3$
+    }sino {
+            imprimir("No Funciona nots y ands :(")$
+        }
+            imprimir("======================================")$
+
+        Logicas3(n0)$
+}
+
+
+publico void Logicas3(entero n0){
+    //Hacer lo mismo que logicas2 pero con nands y nors
+    imprimir("==============Logicas3=============")$
+
+    si (((n0 == 16 !&& false==true) !&& (!(true)))){
+            imprimir("NANDS Correctos")$
+                        punteo = punteo +3$
+
+    }sino {
+                imprimir("No funcionan NANDS :(")$
+        }
+    doble n1 = n0 /16$
+    n1 = n1 + verdadero$
+        booleano condicion1 = n1 !=2$ //esto es falso
+        doble aritmetica1 = n0/16+ (((true !||false)))$ // aritmetica1 = 0
+        booleano condicion2 = aritmetica1 == n1$ //falso
+        booleano condicion3 = !true$ //verdadero
+        
+    si (!(((condicion1!||condicion2) !|| condicion3 ))){
+        imprimir("NORS correectos")$
+                punteo = punteo + 3$
+    }sino {
+            imprimir("No Funcionan NORS :(")$
+        }
+    imprimir("======================================")$
+
+}
+
+
+publico void Relacionales(){
+    entero n0 = 34$
+    entero n1 = 16$
+    
+    relaciones1(n0)$
+    relaciones2(n1)$
+}
+
+
+publico void relaciones1(entero salida)
+{
+
+	             imprimir("==============relacionales1=============")$
+	
+		doble n0 = salida + 0.00$
+        si (n0 < 34.44)
+
+            {
+
+                salida = salida+15$
+
+                si (salida > 44)
+
+                    {
+
+                        salida++$
+
+                    }
+
+                 
+
+                
+
+            }
+
+            sino {
+
+                salida = 1$
+
+            }
+
+        
+
+        Si (salida != 1)
+
+            {
+
+                si (salida == 50)
+
+                    {
+
+                        imprimir("Salida Correcta Relacionales 1!")$
+                        punteo = punteo + 5$
+                    }
+
+                    sino {
+
+                        imprimir("Salida incorrecta!!")$
+
+                    }
+
+                
+
+            }
+
+            sino {
+
+                imprimir("Salida incorrecta!!")$
+
+            }
+                                 imprimir("======================================")$
+
+}
+
+
+publico void relaciones2(entero n0){
+    			imprimir("vas bien, animo :D")$
+
+                 imprimir("============Relacionales2=============")$
+
+
+	        si (10-15 >= 0 && 44.44 == 44.44)
+            {
+
+                imprimir("Salida incorrecta primer Si relacionales2!!")$
+
+            }
+
+            sino {
+
+                si (15+8 == 22-10+5*3-4 && 13*0>-1)
+
+                    {
+
+                        si (10.0 != 11.0-1.01 )
+
+                            {
+
+                                imprimir("Salida CORRECTA en relacionales2!!")$
+                                punteo = punteo + 5$
+                            }
+
+                            sino {
+
+                                imprimir("Salida incorrecta segundo Si relacionales 2!!")$
+
+                            }
+
+                        
+
+                    }
+
+                    sino {
+
+                        Si (1 == 1)
+
+                            {
+
+                                imprimir("Salida incorrecta relacionales 2 3er si !!")$
+
+                            }
+
+                            sino {
+
+                                imprimir("Salida incorrecta relacionales 2 Sino3er si !!")$
+
+                            }
+
+                        
+
+                    }
+
+                
+
+            }
+                                         imprimir("======================================")$
+
+        FactorialIterativo(7)$
+
+}
+
+
+publico void FactorialIterativo(entero n2){
+                     imprimir("==============Para Calificar Ciclos=============")$
+
+	entero numeroFactorial = n2$
+	mientras(numeroFactorial > -1){
+		mostrarFactorial(numeroFactorial)$
+		numeroFactorial--$
+	}
+        SentenciasAnidadas()$
+        imprimir("======================================")$
+
+}
+
+
+
+publico void mostrarFactorial(entero n2){
+	entero fact = 1$
+	cadena str= "El factorial de: "+n2 +" = "$
+	si (n2 !=0){
+		para(entero i=n2$ i >0$ i--){
+			fact = fact * i$
+			str = str + i$
+			si (i > 1){
+				str = str + " * "$
+
+			}sino {
+				str = str + " = "$
+			}
+		}
+	}
+        str = str + fact+ "$"$
+	imprimir(str)$
+}
+
+publico void SentenciasAnidadas(){
+    entero numero1 = 0$
+    hacer{
+        si(numero1 == 0){
+        figura0(8)$
+        }
+        sino si(numero1 ==1){
+        figura1(10)$
+        }
+        sino si(numero1 == 2){
+        figura2()$
+        }
+        sino si(numero1 == 3){
+        cicloRepeat_Continuar_Romper()$
+        }sino{
+            imprimir("Esto se va a imprimir 2 veces :3")$
+        }
+            
+    
+    numero1 = numero1 + 1$
+    }mientras(numero1 <6)$
+}
+
+publico void figura0(entero numero){
+    entero i = 0$
+    mientras(i < numero){
+        entero j = 0$
+        entero numeroMostrar = 1$
+        cadena unaFila = ""$
+        mientras(j <= i){
+            unaFila = unaFila + " " + numeroMostrar$
+            numeroMostrar  = numeroMostrar + 1$
+            j = j + 1$
+        }
+        imprimir(unaFila)$
+        i = i + 1$
+    }
+    imprimir("Si la figura es un triangulo de numeros + 5 :3")$
+}
+
+
+
+publico void figura1(entero n){
+    
+    cadena cadenaFigura = ""$
+    para (doble i = -3*n/2$ i <= n$ i++) {
+        cadenaFigura = ""$
+            para (doble j = -3*n/2$ j <= 3*n/2$ j++) {
+
+                doble absolutoi = i$
+                doble absolutoj = j$
+                si (i <0){
+                    absolutoi = i*-1$
+                }
+                si (j < 0){
+                    absolutoj = j*-1$
+                }
+                Si (((absolutoi + absolutoj < n) || ((-n/2-i) * (-n/2-i) + ( n/2-j) * ( n/2-j) <= n*n/2))
+                    || ((-n/2-i) * (-n/2-i) + (-n/2-j) * (-n/2-j) <= n*n/2)) {
+                    cadenaFigura = cadenaFigura + "* "$
+                }
+                Sino{
+                    cadenaFigura = cadenaFigura + ". "$
+                }
+            }
+            imprimir(cadenaFigura)$
+        }
+    imprimir("Si la figura es un corazon +10 <3")$
+}
+
+publico void figura2(){
+    cadena cadenaFigura = ""$
+     cadena c = "* "$
+        cadena b = "  "$
+        entero altura = 10$
+        entero ancho = 1$
+        para (entero i = 0$ i < altura/4$ i++){
+            para (entero k = 0$ k < altura - i$ k++){
+                cadenaFigura = cadenaFigura+b$
+            }
+            para (entero j = 0$ j < i*2 + ancho$ j++){
+                cadenaFigura = cadenaFigura + c$
+            }
+            
+            imprimir(cadenaFigura)$
+            cadenaFigura =""$
+        }
+         cadenaFigura = ""$
+         para(entero i = 0$ i < altura/4$ i++){
+            para(entero k = 0$ k < (altura - i) - 2$ k++){
+                cadenaFigura = cadenaFigura + b$
+            }
+            para(entero j = 0$ j < i*2 + 5$ j++){
+                cadenaFigura = cadenaFigura + c$
+            }
+            
+            imprimir(cadenaFigura)$
+            cadenaFigura = ""$
+        }
+         cadenaFigura = ""$
+        para(entero i = 0$ i < altura/4$ i++){
+            para(entero k = 0$ k < (altura - i) - 4$ k++){
+                cadenaFigura = cadenaFigura + b$
+            }
+            para(entero j = 0$ j < i*2 + 9$ j++){
+                cadenaFigura = cadenaFigura +c$
+            }
+            
+            imprimir(cadenaFigura)$
+            cadenaFigura = ""$
+        }
+        
+        cadenaFigura =""$
+        para(entero i = 0$ i < altura/4$ i++){
+            para(entero k = 0$ k < (altura - i) - 6$ k++){
+                cadenaFigura = cadenaFigura + b$
+            }
+            para(entero j = 0$ j < i*2 + 13$ j++){
+                cadenaFigura = cadenaFigura + c$
+            }
+            
+            imprimir(cadenaFigura)$
+            cadenaFigura = ""$
+        }
+        cadenaFigura = ""$
+        para(entero i = 0$ i < altura/4$ i++){
+            para(entero k = 0$ k < altura -2$ k++){
+                cadenaFigura = cadenaFigura + b$
+            }
+            para(entero j = 0$ j < 5$ j++){
+                cadenaFigura = cadenaFigura + c$
+            }
+            
+            imprimir(cadenaFigura)$
+            cadenaFigura = ""$
+        }
+        
+            imprimir("Si la figura es un Arbol +10 <3")$
+
+       }
+
+
+//hasta aqui vamos bien
+
+
+
+publico  void cicloRepeat_Continuar_Romper(){
+    imprimir("============Validar Continuar y Romper===========")$
+    entero i = 0$
+    
+    repetir(5*5-3*5){ //repetir 10 veces
+        entero j = i$
+        Si(i != 7 && i != 5){
+        mientras(!(j <=0)){
+            j = j -2$
+        }
+        Si(j==0){
+            imprimir("El numero: "+i +" es par")$
+        }Sino Si(j!=1){
+            imprimir("El numero: "+i +" es impar")$
+        }
+        }Sino{
+            Si(i==7){
+                
+                imprimir("Hay un break para el numero 7 :3")$
+                Romper$
+                imprimir("Esto no deberia imprimirse por el continue :/")$
+            }Sino si(i ==5){
+                imprimir("me voy a saltar el 5 porque hay un continue :3")$
+                i = i + 1$
+                Continuar$
+            }
+        }
+        i = i + 1$
+        
+    }
+
+    Si(i==7){
+        imprimir("Si el ultimo numero impreso es un 7, tienes un +5 :D")$
+                        punteo = punteo +5$
+
+    }Sino{
+        imprimir("No funciona tu Break o Continue, perdiste 5 puntos :(")$
+    }
+    imprimir("======================================")$
+    
+}
+
+
+
+
+//cerrar llave de la clase
+}

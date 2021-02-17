@@ -1,0 +1,23 @@
+{
+
+<!
+	Este es un comentario
+!>
+CONJ: letra -> a~n;
+CONJ: digito -> 0~9;
+
+//otro comentario
+EId -> . \n . {letra} * | "_" | {letra} {digito};
+ExpresionReg2 -> . {digito} . "." + {digito};
+RegEx3 -> . "estoesid" * | "_" | {letra} {digito};
+
+
+%%
+%%
+EId : 
+"
+Entrada1";
+ExpresionReg2 : "34.44";
+RegEx3: "estoesid_id";
+
+}

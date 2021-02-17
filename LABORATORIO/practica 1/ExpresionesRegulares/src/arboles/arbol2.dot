@@ -1,0 +1,90 @@
+digraph G { 
+
+"9
+ anulable: N
+ primeros: 1
+ ultimos: 10
+."->"8
+ anulable: N
+ primeros: 1
+ ultimos: 1, 2, 3, 4
+." 
+"8
+ anulable: N
+ primeros: 1
+ ultimos: 1, 2, 3, 4
+."->"1
+ anulable: N
+ primeros: 1
+ ultimos: 1
+digito" 
+"8
+ anulable: N
+ primeros: 1
+ ultimos: 1, 2, 3, 4
+."->"7
+ anulable: A
+ primeros: 2, 3, 4
+ ultimos: 2, 3, 4
+*" 
+"7
+ anulable: A
+ primeros: 2, 3, 4
+ ultimos: 2, 3, 4
+*"->"6
+ anulable: N
+ primeros: 2, 3, 4
+ ultimos: 2, 3, 4
+|" 
+"6
+ anulable: N
+ primeros: 2, 3, 4
+ ultimos: 2, 3, 4
+|"->"2
+ anulable: N
+ primeros: 2
+ ultimos: 2
+simbolo" 
+"6
+ anulable: N
+ primeros: 2, 3, 4
+ ultimos: 2, 3, 4
+|"->"5
+ anulable: N
+ primeros: 3, 4
+ ultimos: 3, 4
+|" 
+"5
+ anulable: N
+ primeros: 3, 4
+ ultimos: 3, 4
+|"->"3
+ anulable: N
+ primeros: 3
+ ultimos: 3
+letra" 
+"5
+ anulable: N
+ primeros: 3, 4
+ ultimos: 3, 4
+|"->"4
+ anulable: N
+ primeros: 4
+ ultimos: 4
+digito" 
+"9
+ anulable: N
+ primeros: 1
+ ultimos: 10
+."->"10
+ anulable: N
+ primeros: 10
+ ultimos: 10
+#" 
+
+label ="
+
+ nombre: RegEx3" ;
+ fontsize=20;
+
+ }

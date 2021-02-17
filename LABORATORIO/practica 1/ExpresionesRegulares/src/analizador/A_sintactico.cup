@@ -1,0 +1,404 @@
+package analizador; // Paquete
+import java_cup.runtime.Symbol;
+import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import objetos.ExpresionRegular;
+import objetos.Conjunto;
+import objetos.Nodo;
+import objetos.Nhojas;
+parser code
+{:
+    public static LinkedList<Conjunto> miConjunto = new LinkedList<>();
+    public static LinkedList<ExpresionRegular> miER = new LinkedList<>();
+    private ArrayList<String> anulab = new ArrayList<>();
+    public static LinkedList<Nhojas> nhojas = new LinkedList<Nhojas>();
+
+    public static Nodo padre;
+    public int cont = 1;
+    public String salida = "" ; // Aquí guardaremos nuestra resultado.
+    public static String errorSin = "";
+    public String DescripcinError = "El analizador se recupero tras el error\nError en la Línea";
+    public void syntax_error(Symbol s){
+        System.err.println("El analizador se recupero tras el error\nError en la Línea " + (s.right+1) +" Columna "+(s.left+1)+ ". Identificador "+s.value + " no reconocido." );
+    }
+
+
+/**Metodo al que se llama en el momento en que ya no es posible una recuperación de
+errores.*/
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{
+        String error = "El analizador No se recupero, ERROR";
+       // TErrorSintactico datos = new TErrorSintactico(error, fila, columna, identi);
+        //tbErrorSintactico.add(datos);
+        setSalida(error);
+    }
+
+    public void setSalida(String cadena) // Metodo que guarda nuestro resultado salida
+    {
+        salida = cadena;
+    }
+
+    /***********    si el conjunto ya fue declarado    ************/
+    private Boolean existe_conj(String a){
+        Boolean flag = false;
+        for(int i = 0; i<miConjunto.size(); i++){
+            if(miConjunto.get(i).getIdentificador().equals(a)){
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
+// String FaleName = cadena.replaceAll("\"", ""); //elimina comillas al string antes ""id"" ahora "id"
+
+    /******************        es para ver si es anulable o no      ***********/
+    private String AN(Nodo c1, Nodo c2, String op){
+        String retornar = "N";
+        switch(op){
+            case ".":
+                if(c1.anulables == "A" && c2.anulables == "A"){
+                    retornar = "A";
+                }
+                break;
+            case "|":
+                if(!(c1.anulables == "N" && c2.anulables == "N")){
+                    retornar = "A";
+                }
+                break;
+        }
+        return retornar;
+    }
+
+    /***************    determinar primeros y ultimos     **********/
+        private String prim_ult(Nodo c1, Nodo c2, String op, String prim_ultimo){
+        String retornar = "";
+        String primero = "";
+        String ultimo = "";
+        switch(op){
+            case "|":
+                primero = c1.primeros + ", " + c2.primeros;
+                ultimo = c1.ultimos + ", " + c2.ultimos;
+                break;
+            case ".":
+                if(c1.anulables == "A"){
+                    primero = c1.primeros + ", " + c2.primeros;
+                }else{
+                    primero = c1.primeros;
+                }
+                if(c2.anulables == "A"){
+                    ultimo = c1.ultimos + ", " + c2.ultimos;
+                }else{
+                    ultimo = c2.ultimos;
+                }
+                break;
+        }
+        
+        if(prim_ultimo.equals("primero")){
+            retornar = primero;
+            
+        }else{/*ultimo*/
+            retornar = ultimo;
+        }
+        return retornar;
+    }
+
+
+    /*******************  FIN DE ESTE BLOQUE   *************************/
+    
+:}
+
+/*  terminales palabras reservadas   */
+terminal String conj;
+terminal String flecha;
+terminal String simSeparacion;
+
+
+/*ER*/
+terminal String letra;
+terminal String digito;
+terminal String entero;
+terminal String decimal;
+terminal String id; 
+terminal String cadena;
+terminal String especiales;
+terminal String conjunto;
+terminal String str;
+
+
+/*---SIMBOLOS---*/
+terminal String admira;
+terminal String comDob;
+terminal String numeral;
+terminal String dolar;
+terminal String porsentaje;
+terminal String ampersand;
+terminal String comSim;
+terminal String Apar;
+terminal String Cpar;
+terminal  por;
+terminal  mas;
+terminal String cma;
+terminal String menos;
+terminal  punto;
+terminal String div;
+terminal String dosp;
+terminal String pyc;
+terminal String menorQ;
+terminal String eq;
+terminal String mayorQ;
+terminal  interroga;
+terminal String arroba;
+terminal String corA;
+terminal String corC;
+terminal String slash;
+terminal String potencia;
+terminal String guinB;
+terminal String acentoG;
+terminal String Allav;
+terminal String Cllav;
+terminal  barra;
+terminal String tilde;
+terminal String salto;
+
+
+
+
+
+/*  Aquí están los no Terminales  */
+non terminal String INICIO;
+non terminal String CUERPO;
+non terminal String CONJUNTO;
+non terminal String L_CONJUNTO;
+non terminal String VALOR_CONJ;
+
+non terminal  ER;
+non terminal String BLOQ_ER;
+non terminal String L_ER;
+
+non terminal String BLOQ_SEPARAR;
+non terminal String SIM_SEPARACION;
+
+non terminal String BLOQ_LEX;
+non terminal String LEXEMA;
+non terminal String L_LEXEMA;
+non terminal  PREO;
+
+non terminal String INTERPRETE;
+non terminal String MI_INTERPRETE;   
+
+/*orden de precedencia*/
+precedence right punto;
+precedence right barra;
+precedence right por;
+precedence right mas;
+precedence right interroga;
+
+/* Definición de la gramatica */
+start with INICIO; // indicamos con qué producción debe empezar la gramatica.
+
+                /**********     INICIO DE LA gramatica      *********/
+
+INICIO::= INTERPRETE:valor {: setSalida(valor); :};
+INTERPRETE::= Allav CUERPO Cllav ;
+
+CUERPO::=  L_ER SIM_SEPARACION L_LEXEMA ;
+/*
+BLOQ_ER::= L_CONJUNTO
+    | L_ER SIM_SEPARACION
+    ;
+*/
+L_CONJUNTO::= L_CONJUNTO CONJUNTO | CONJUNTO ;
+
+L_ER::= L_ER BLOQ_ER | BLOQ_ER ;
+
+L_LEXEMA::= L_LEXEMA BLOQ_LEX | BLOQ_LEX ;
+
+
+BLOQ_ER::= ER | CONJUNTO ;
+
+BLOQ_LEX::= id dosp LEXEMA pyc | CONJUNTO ;
+
+CONJUNTO::= conj dosp id:a flecha conjunto:b pyc 
+    {:  miConjunto.add(new Conjunto(a, b)); :}
+    ;
+ER::= id:a flecha  PREO:b pyc       {:
+                                
+                                Nodo nd = new Nodo();
+                                Nodo nd1 = new Nodo();
+                                nd1.setRaiz("#");
+                                nd1.setAnulables("N");
+                                nd1.setIdN(parser.cont+1);
+                                nd1.setPrimeros(""+(parser.cont+1));
+                                nd1.setUltimos(""+(parser.cont+1));
+                                nhojas.add(new Nhojas("#", ""+(parser.cont+1), "-----"));
+
+                                nd.setRaiz(".");
+                                nd.setAnulables("N");
+                                nd.setIdN(parser.cont);
+                                nd.setPrimeros(prim_ult((Nodo)b, nd1, ".", "primero"));
+                                nd.setUltimos(prim_ult((Nodo)b, nd1, ".", "ultimo"));
+                                parser.cont++;
+                                nd.AddHijos((Nodo) b);
+                                nd.AddHijos(nd1);
+                                parser.padre = (Nodo) nd;
+                                miER.add(new ExpresionRegular(a, nd, nhojas));
+                                cont = 1;
+                                nhojas = new LinkedList<Nhojas>();
+                                :} 
+;
+SIM_SEPARACION::= simSeparacion simSeparacion ;
+
+LEXEMA::= str
+    | entero
+    | decimal
+    | id
+    ;
+
+PREO::= punto:a PREO:b PREO:c   {:
+                                Nodo nd = new Nodo();
+                                nd.setRaiz(".");
+                                nd.setIdN(parser.cont);
+                                nd.setAnulables(AN((Nodo)b, (Nodo)c, "."));
+                                nd.setPrimeros(prim_ult((Nodo)b, (Nodo)c, ".", "primero"));
+                                nd.setUltimos(prim_ult((Nodo)b, (Nodo)c, ".", "ultimo"));
+                                parser.cont++;
+                                nd.AddHijos((Nodo) b);
+                                nd.AddHijos((Nodo) c);
+                                RESULT = nd;
+                                :} 
+    | barra:a PREO:b PREO:c {:
+                            Nodo nd = new Nodo();
+                            nd.setRaiz("|");
+                            nd.setIdN(parser.cont);
+                            nd.setAnulables(AN((Nodo)b, (Nodo)c, "|"));
+                            nd.setPrimeros(prim_ult((Nodo)b, (Nodo)c, "|", "primero"));
+                            nd.setUltimos(prim_ult((Nodo)b, (Nodo)c, "|", "ultimo"));
+                            parser.cont++;
+                            nd.AddHijos((Nodo) b);
+                            nd.AddHijos((Nodo) c);
+                            RESULT = nd;
+                            :} 
+    | por:a PREO:b          {:
+                            Nodo nd = new Nodo();
+                            Nodo hijo = (Nodo) b;
+                            nd.setRaiz("*");
+                            nd.setAnulables("A");
+                            nd.setIdN(parser.cont);
+                            nd.setPrimeros(hijo.primeros);
+                            nd.setUltimos(hijo.ultimos);
+                            parser.cont++;
+                            nd.AddHijos((Nodo) b);
+                            RESULT = nd;
+                            :} 
+    | mas:a PREO:b          {:
+                            Nodo nd = new Nodo();
+                            nd.setRaiz("+");
+                            nd.setIdN(parser.cont);
+                            Nodo hijo = (Nodo) b;
+                            nd.setAnulables(hijo.anulables);
+                            nd.setPrimeros(hijo.primeros);
+                            nd.setUltimos(hijo.ultimos);
+                            parser.cont++;
+                            nd.AddHijos((Nodo) b);
+                            RESULT = nd;
+                            :} 
+    | interroga:a PREO:b    {:
+                            Nodo nd = new Nodo();
+                            Nodo hijo = (Nodo) b;
+                            nd.setRaiz("?");
+                            nd.setAnulables("A");
+                            nd.setIdN(parser.cont);
+                            nd.setPrimeros(hijo.primeros);
+                            nd.setUltimos(hijo.ultimos);
+                            parser.cont++;
+                            nd.AddHijos((Nodo) b);
+                            RESULT = nd;
+                            :} 
+    | Allav PREO:a Cllav   {:  RESULT = a; :}
+    | corA PREO:a corC  {: RESULT = a; :}
+    | letra:a       {:
+                    Nodo nd = new Nodo();
+                    nd.setRaiz("letra");
+                    nd.setValor(a);
+                    nd.setAnulables("N");
+                    nd.setIdN(parser.cont);
+                    nd.setPrimeros(""+(parser.cont));
+                    nd.setUltimos(""+(parser.cont));
+                    nhojas.add(new Nhojas(a, ""+(parser.cont), ""));
+                    parser.cont++;
+                    RESULT = nd;
+                :}
+    | digito:a      {:
+                    Nodo nd = new Nodo();
+                    nd.setRaiz("digito");
+                    nd.setValor(a);
+                    nd.setAnulables("N");
+                    nd.setIdN(parser.cont);
+                    nd.setPrimeros(""+(parser.cont));
+                    nd.setUltimos(""+(parser.cont));
+                    nhojas.add(new Nhojas(a, ""+(parser.cont), ""));
+                    parser.cont++;
+                    RESULT = nd;
+                :}
+    | entero:a      {:
+                    Nodo nd = new Nodo();
+                    nd.setRaiz("numero");
+                    nd.setValor(a);
+                    nd.setAnulables("N");
+                    nd.setIdN(parser.cont);
+                    nd.setPrimeros(""+(parser.cont));
+                    nd.setUltimos(""+(parser.cont));
+                    nhojas.add(new Nhojas(a, ""+(parser.cont), ""));
+                    parser.cont++;
+                    RESULT = nd;
+                :}
+    | decimal:a     {:
+                    Nodo nd = new Nodo();
+                    nd.setRaiz("decimal");
+                    nd.setValor(a);
+                    nd.setAnulables("N");
+                    nd.setIdN(parser.cont);
+                    nd.setPrimeros(""+(parser.cont));
+                    nd.setUltimos(""+(parser.cont));
+                    nhojas.add(new Nhojas(a, ""+(parser.cont), ""));
+                    parser.cont++;
+                    RESULT = nd;
+                :}
+    | especiales:a  {:
+                    Nodo nd = new Nodo();
+                    nd.setRaiz("especiales");
+                    nd.setValor(a);
+                    nd.setAnulables("N");
+                    nd.setIdN(parser.cont);
+                    nd.setPrimeros(""+(parser.cont));
+                    nd.setUltimos(""+(parser.cont));
+                    nhojas.add(new Nhojas(a, ""+(parser.cont), ""));
+                    parser.cont++;
+                    RESULT = nd;
+                :}
+    | id:a      {:
+                    Nodo nd = new Nodo();
+                    nd.setRaiz(a);
+                    nd.setValor(a);
+                    nd.setIdN(parser.cont);
+                    nd.setAnulables("N");
+                    nd.setPrimeros(""+(parser.cont));
+                    nd.setUltimos(""+(parser.cont));
+                    nhojas.add(new Nhojas(a, ""+(parser.cont), ""));
+                    parser.cont++;
+                    RESULT = nd;
+                :}
+    | str:a     {:
+                    Nodo nd = new Nodo();
+                    nd.setRaiz("simbolo");
+                    nd.setValor(a);
+                    nd.setIdN(parser.cont);
+                    nd.setAnulables("N");
+                    nd.setPrimeros(""+(parser.cont));
+                    nd.setUltimos(""+(parser.cont));
+                    nhojas.add(new Nhojas(a, ""+(parser.cont), ""));
+                    parser.cont++;
+                    RESULT = nd;
+                :}
+    ;
+

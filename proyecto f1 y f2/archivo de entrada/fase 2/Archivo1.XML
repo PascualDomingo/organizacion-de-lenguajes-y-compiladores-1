@@ -1,0 +1,17 @@
+<Salida>
+	<Expresion>
+		<Valor>primerLexema<Valor/>
+		<ER>ExpReg1 </ER>
+		<Resultado>Cadena Valida<Resultado/>
+	</Expresion>
+	<Expresion>
+		<Valor>segundoLexema<Valor/>
+		<ER>ExpReg2</ER>
+		<Resultado>Cadena Valida<Resultado/>
+	</Expresion>
+	<Expresion>
+		<Valor>34.44<Valor/>
+		<ER>ExpresionReg1 </ER>
+		<Resultado>Cadena Valida<Resultado/>
+	</Expresion>
+</Salida>

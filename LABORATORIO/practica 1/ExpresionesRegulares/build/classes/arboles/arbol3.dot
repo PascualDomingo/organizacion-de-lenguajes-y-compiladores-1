@@ -1,0 +1,90 @@
+digraph G { 
+
+"9
+ anulable: N
+ primeros: 1
+ ultimos: 10
+."->"8
+ anulable: N
+ primeros: 1
+ ultimos: 6
+." 
+"8
+ anulable: N
+ primeros: 1
+ ultimos: 6
+."->"1
+ anulable: N
+ primeros: 1
+ ultimos: 1
+especiales" 
+"8
+ anulable: N
+ primeros: 1
+ ultimos: 6
+."->"7
+ anulable: N
+ primeros: 2, 3
+ ultimos: 6
+." 
+"7
+ anulable: N
+ primeros: 2, 3
+ ultimos: 6
+."->"5
+ anulable: N
+ primeros: 2, 3
+ ultimos: 2, 3
++" 
+"5
+ anulable: N
+ primeros: 2, 3
+ ultimos: 2, 3
++"->"4
+ anulable: N
+ primeros: 2, 3
+ ultimos: 2, 3
+|" 
+"4
+ anulable: N
+ primeros: 2, 3
+ ultimos: 2, 3
+|"->"2
+ anulable: N
+ primeros: 2
+ ultimos: 2
+especiales" 
+"4
+ anulable: N
+ primeros: 2, 3
+ ultimos: 2, 3
+|"->"3
+ anulable: N
+ primeros: 3
+ ultimos: 3
+especiales" 
+"7
+ anulable: N
+ primeros: 2, 3
+ ultimos: 6
+."->"6
+ anulable: N
+ primeros: 6
+ ultimos: 6
+especiales" 
+"9
+ anulable: N
+ primeros: 1
+ ultimos: 10
+."->"10
+ anulable: N
+ primeros: 10
+ ultimos: 10
+#" 
+
+label ="
+
+ nombre: EXP5" ;
+ fontsize=20;
+
+ }

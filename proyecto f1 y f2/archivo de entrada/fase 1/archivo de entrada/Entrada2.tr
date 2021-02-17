@@ -1,0 +1,58 @@
+
+clase EntradaFractal {
+//Se evalúan, paso de parámetros
+//Expresiones aritméticas
+//Recursividad BASICA
+//Case Insensitive
+//Variables globales
+//sentencia Imprimir
+//Sentencia para
+//Sentencia Si
+//Sentencia para
+//Metodo Principal
+//Comentarios
+
+	doble r_toRadians$
+	doble r_sine$
+
+	void toRadians(doble angle){
+	    r_toRadians = angle*3.141592653589793/180$
+	}
+
+	void sine(doble x){
+	    doble sin=0.0$
+	    entero fact$
+	    para(entero i=1$ i<=10$ i++){
+	        fact=1$
+	        para(entero j=1$ j<=2*i-1$ j++){
+	             fact=fact*j$
+	        }
+	        sin=sin+(( x^(2*i-1)  )/fact)$
+	        
+	    }
+	    r_sine = sin$
+	}
+
+	void drawTree(doble x1, doble y1, doble angle, entero depth) {
+		si(depth != 0) {
+			toRadians(angle)$
+			sine(3.141592653589793 / 2 + r_toRadians)$
+			doble x2 = x1 + (r_sine * depth * 10.0)$
+			toRadians(angle)$
+			sine(r_toRadians)$
+                        doble y2 = y1 + (r_sine * depth * 10.0)$
+		        IMPrimIR(x1 + " " + y1 + " " + x2 + " " + y2 + "")$
+                        drawTree(x2, y2, angle - 20, depth - 1)$
+                        drawTree(x2, y2, angle + 20, depth - 1)$
+		}
+	    
+	}
+
+	Principal() {
+		IMPrimIR("===============SI SALE?=================")$
+		drawTree(350.0, 700.0, -190.0, 7)$
+		IMPrimIR("=============== FIN ====================")$
+	}
+}
+
+

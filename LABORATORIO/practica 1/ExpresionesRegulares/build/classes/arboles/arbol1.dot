@@ -1,0 +1,72 @@
+digraph G { 
+
+"7
+ anulable: N
+ primeros: 1
+ ultimos: 8
+."->"6
+ anulable: N
+ primeros: 1
+ ultimos: 3
+." 
+"6
+ anulable: N
+ primeros: 1
+ ultimos: 3
+."->"1
+ anulable: N
+ primeros: 1
+ ultimos: 1
+digito" 
+"6
+ anulable: N
+ primeros: 1
+ ultimos: 3
+."->"5
+ anulable: N
+ primeros: 2
+ ultimos: 3
+." 
+"5
+ anulable: N
+ primeros: 2
+ ultimos: 3
+."->"2
+ anulable: N
+ primeros: 2
+ ultimos: 2
+simbolo" 
+"5
+ anulable: N
+ primeros: 2
+ ultimos: 3
+."->"4
+ anulable: N
+ primeros: 3
+ ultimos: 3
++" 
+"4
+ anulable: N
+ primeros: 3
+ ultimos: 3
++"->"3
+ anulable: N
+ primeros: 3
+ ultimos: 3
+digito" 
+"7
+ anulable: N
+ primeros: 1
+ ultimos: 8
+."->"8
+ anulable: N
+ primeros: 8
+ ultimos: 8
+#" 
+
+label ="
+
+ nombre: ExpresionReg2" ;
+ fontsize=20;
+
+ }

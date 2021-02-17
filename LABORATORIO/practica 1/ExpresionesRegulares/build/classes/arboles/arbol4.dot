@@ -1,0 +1,162 @@
+digraph G { 
+
+"17
+ anulable: N
+ primeros: 1
+ ultimos: 18
+."->"16
+ anulable: N
+ primeros: 1
+ ultimos: 9
+." 
+"16
+ anulable: N
+ primeros: 1
+ ultimos: 9
+."->"1
+ anulable: N
+ primeros: 1
+ ultimos: 1
+posibles" 
+"16
+ anulable: N
+ primeros: 1
+ ultimos: 9
+."->"15
+ anulable: N
+ primeros: 2, 4
+ ultimos: 9
+." 
+"15
+ anulable: N
+ primeros: 2, 4
+ ultimos: 9
+."->"3
+ anulable: A
+ primeros: 2
+ ultimos: 2
+?" 
+"3
+ anulable: A
+ primeros: 2
+ ultimos: 2
+?"->"2
+ anulable: N
+ primeros: 2
+ ultimos: 2
+simbolo" 
+"15
+ anulable: N
+ primeros: 2, 4
+ ultimos: 9
+."->"14
+ anulable: N
+ primeros: 4
+ ultimos: 9
+." 
+"14
+ anulable: N
+ primeros: 4
+ ultimos: 9
+."->"4
+ anulable: N
+ primeros: 4
+ ultimos: 4
+digito" 
+"14
+ anulable: N
+ primeros: 4
+ ultimos: 9
+."->"13
+ anulable: N
+ primeros: 5
+ ultimos: 9
+." 
+"13
+ anulable: N
+ primeros: 5
+ ultimos: 9
+."->"5
+ anulable: N
+ primeros: 5
+ ultimos: 5
+digito" 
+"13
+ anulable: N
+ primeros: 5
+ ultimos: 9
+."->"12
+ anulable: N
+ primeros: 6
+ ultimos: 9
+." 
+"12
+ anulable: N
+ primeros: 6
+ ultimos: 9
+."->"6
+ anulable: N
+ primeros: 6
+ ultimos: 6
+digito" 
+"12
+ anulable: N
+ primeros: 6
+ ultimos: 9
+."->"11
+ anulable: N
+ primeros: 7
+ ultimos: 9
+." 
+"11
+ anulable: N
+ primeros: 7
+ ultimos: 9
+."->"7
+ anulable: N
+ primeros: 7
+ ultimos: 7
+letra" 
+"11
+ anulable: N
+ primeros: 7
+ ultimos: 9
+."->"10
+ anulable: N
+ primeros: 8
+ ultimos: 9
+." 
+"10
+ anulable: N
+ primeros: 8
+ ultimos: 9
+."->"8
+ anulable: N
+ primeros: 8
+ ultimos: 8
+letra" 
+"10
+ anulable: N
+ primeros: 8
+ ultimos: 9
+."->"9
+ anulable: N
+ primeros: 9
+ ultimos: 9
+letra" 
+"17
+ anulable: N
+ primeros: 1
+ ultimos: 18
+."->"18
+ anulable: N
+ primeros: 18
+ ultimos: 18
+#" 
+
+label ="
+
+ nombre: Pl" ;
+ fontsize=20;
+
+ }

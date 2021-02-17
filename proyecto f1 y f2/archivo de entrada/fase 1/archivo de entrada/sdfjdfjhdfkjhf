@@ -1,0 +1,204 @@
+clase EntradaFunciones {
+	
+	Principal(){
+		
+		entero numero = 10$
+        entero resultado = 0$
+        entero x = 0$
+        entero numeroIteraciones=100$
+        entero factorial = 1$        
+        entero i,j = 0$          
+        entero contador = 0$  
+        //Cadena arreglo mensajes[10] =  {"e^x(", "ln(1+","ln(", "sin(", "cos(", "arctan(","sinh(","cosh("}$    
+        //doble arreglo parametros[10] = {5.0,0.5,1.5,2.0,2.0,0.2,0.2,0.2,2.0,3.0}$
+        Cadena tipoFuncion1 = "e^x("$
+        Cadena tipoFuncion2 = "ln(1+"$
+        Cadena tipoFuncion3 = "ln("$
+        Cadena tipoFuncion4 = "sin("$
+        Cadena tipoFuncion5 = "cos("$
+        Cadena tipoFuncion6 = "arctan("$
+        Cadena tipoFuncion7 = "sinh("$
+        Cadena tipoFuncion8 = "cosh("$
+
+        
+
+        para(entero contador = 8 $ contador>0$ contador--)
+        {
+            si(contador == 1)
+            {
+                //  Calculo de e^x 
+                //  Primero calculamos el factorial
+                resultado = 0$  
+                x = 5.0$    
+                entero fact=1$  
+                j=0$
+                entero number=5$//It is the number to calculate factorial    
+                para(i=1$i<=number$i++){    
+                    fact=fact*i$    
+                    IMPrimIR(i+"! = "+fact)$
+                }  
+                
+                para(i = 0 $i < numeroIteraciones$ i++)
+                {    
+                    factorial = 1$
+                    entero d = 0$
+                    mientras(d < (i-1))
+                    {
+                        factorial = factorial * (j+1)$
+                        d++$
+                    }
+                resultado = resultado + (x ^ i) / factorial$                        
+            }     
+                IMPrimIR(contador +"--" + tipoFuncion1+x+") = " + resultado)$
+                IMPrimIR("Operacion # " + contador +","+ contador +"--" + tipoFuncion1+x+") = " + resultado)$
+            }
+
+
+
+
+        }
+
+            
+	}
+
+}
+
+
+
+
+
+************************************************************************
+            sino
+            si(contador ==2 )
+            {
+                <-  2. Ln(1+x) 
+                para |x|<1
+                ->
+                x = 0.5$
+                resultado = 0$ // Limpiamos el resultado
+                para(i = 1 $i < numeroIteraciones$ i++)
+                {    
+                    resultado = resultado + (((-1) ^ (i+1)))/i*(x^i)$            
+                } 
+                IMPrimIR(contador +"--" + tipoFuncion2+x+") = " + resultado)$ 
+                IMPrimIR("Operacion # " + contador +", "+ contador +"--" + tipoFuncion2+x+") = " + resultado )$                 
+            }
+
+            sino 
+                si(contador == 3)
+            {
+                <-  3. Ln(x)         
+                ->
+                x = 1.5$
+                resultado = 0$ // Limpiamos el resultado
+                para(i = 0 $i < numeroIteraciones$ i++)
+                {                
+                    resultado = resultado +  (1/(2*i+1)) * (((x-1)/(x+1)) ^ (2*i +1))$
+                }             
+                resultado = resultado + resultado$
+                IMPrimIR(contador +"--" + tipoFuncion3+x+") = " + resultado)$ 
+                IMPrimIR("Operacion # " + contador +", "+ contador +"--" + tipoFuncion3+x+") = " + resultado )$                
+            }
+
+            sino 
+                si(contador ==4)
+            {
+                <-  4. Sin(x)
+                ->
+                x = 2.0$
+                resultado = 0$ // Limpiamos el resultado       
+                para(i = 0 $i < numeroIteraciones$ i++)
+                {                                
+                    factorial = 1$
+                    entero c = 0$
+                    mientras(c < (2*i + 1)){
+                    //repetir(2*i +1)
+                        factorial = factorial * (i+1)$
+                        c++$
+                    }                             
+                    resultado = resultado +    ((((-1)^ i)) /(factorial)) *((x ^ (2*i+1)))$
+                }         
+                IMPrimIR(contador +"--" + tipoFuncion4+x+") = " + resultado)$
+                IMPrimIR("Operacion # " + contador +", "+ contador +"--" + tipoFuncion4+x+") = " + resultado )$                           
+            }
+
+            sino si(contador ==5)
+            {
+                <-  5. cos(x)
+                ->
+                x = 2.0$
+                resultado = 0$ // Limpiamos el resultado        
+                para(i = 0 $i < numeroIteraciones$ i++)
+                {                
+                    factorial = 1$
+                    entero c = 0$
+                    mientras(c < 2*i)
+                    {
+                        factorial = factorial * (i+1)$
+                        c++$
+                    }                               
+                    resultado = resultado + ((((-1)^ i)) /(factorial)) *((x^(2*i))) $            
+                }         
+                IMPrimIR(contador +"--" + tipoFuncion5+x+") = " + resultado)$
+                IMPrimIR("Operacion # " + contador +", "+ contador +"--" + tipoFuncion5+x+") = " + resultado )$                 
+            }
+
+            sino si(contador == 6)
+            {
+                <-  6. arctan(x)
+                |x| < 1
+                ->
+                x = 0.2$
+                resultado = 0$ //>> Limpiamos el resultado        
+                para(i = 0 $i < numeroIteraciones$ i++)
+                {                            
+                    resultado = resultado +  ((((-1) ^ i))*(2*i+1)) *((x ^ (2*i+1)))$
+                }         
+                IMPrimIR(contador +"--" + tipoFuncion6+x+") = " + resultado)$
+                IMPrimIR("Operacion # " + contador +", "+ contador +"--" + tipoFuncion6+x+") = " + resultado )$                  
+            }
+
+            sino si(contador ==7)
+            {
+                <-  7. sinh(x)
+                |x| < 1
+                ->
+                x = 0.2$
+                resultado = 0$ // Limpiamos el resultado        
+                para(i = 0 $i < numeroIteraciones$ i++)
+                {                            
+                    factorial = 1$
+                    entero c = 0$
+                    mientras(c < 2*i +1)
+                    {
+                        factorial = factorial * (i+1)$
+                        c++$
+                    }                            
+                    resultado = resultado +   (1/(factorial))* (x ^ (2*i+1)) $
+                }         
+                IMPrimIR(contador +"--" + tipoFuncion7+x+") = " + resultado)$
+                IMPrimIR("Operacion # " + contador +", "+ contador +"--" + tipoFuncion7+x+") = " + resultado )$                
+            }
+
+
+            sino 
+                si(contador == 8)
+            {
+                <-  8. cosh(x)       
+                ->
+                x = 0.2$
+                resultado = 0$ // Limpiamos el resultado        
+                para(i = 0 $i < numeroIteraciones$ i++)
+                {                            
+                    factorial = 1$
+                    entero c = 0$
+                    mientras(c<(2*i))
+                    {
+                        factorial = factorial * (i+1)$
+                        c++$
+                    }                           
+                    resultado = resultado +   (1/(factorial))* (x ^ (2*i)) $
+                }                     
+                IMPrimIR(contador +"--" + tipoFuncion8+x+") = " + resultado)$ 
+                IMPrimIR("Operacion # " + contador +", "+ contador +"--" +  tipoFuncion8+x+") = " + resultado )$                
+            }

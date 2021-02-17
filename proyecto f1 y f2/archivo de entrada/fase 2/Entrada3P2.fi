@@ -1,0 +1,96 @@
+﻿Clase Arbol{
+
+    Nodo raiz$ //Raiz del árbol    
+
+    publico void constructor(Entero x){
+        raiz=nuevo Nodo()$
+        raiz.constructor(x)$
+
+    }    
+
+    publico void agregarNodo(Entero x){
+        Imprimir("Agregando nodo"+x)$
+        raiz.insertar(x)$
+    }
+
+
+    publico void imprimir_preOrden  () {
+        raiz.imprimir_preOrden()$
+    }
+    publico void imprimir_postOrden  () {
+        raiz.imprimir_postOrden()$
+    }    
+    publico void imprimir_enOrden  () {
+        raiz.imprimir_enOrden()$
+    }    
+
+}
+
+
+Clase Nodo{
+	entero valor$
+    Nodo hijoizquierdo$
+    Nodo hijoderecho$
+    boolean izquierdoesnulo$ //Para saber si el hijo izquierdo es nulo o no
+    boolean derechoesnulo$ //Para saber si el hijo derecho es nulo o no
+
+
+    <- Este método va a funcionar como el constructor de la clase ->
+     publico void constructor (entero par_valor) {
+        valor = par_valor$
+        izquierdoesnulo = true$ //Hijo izquierdo es nulo
+        derechoesnulo = true$ //Hijo derecho es nulo
+    }
+
+
+
+    <- Método que inserta un valor en el árbol de Parama recursiva ->
+    publico void insertar (Entero nuevo_val) {
+        Nodo n=nuevo Nodo()$
+        n.constructor(nuevo_val)$        
+        si(nuevo_val<valor){
+                si(izquierdoesnulo){hijoizquierdo=n$izquierdoesnulo=falso$}
+                sino{hijoizquierdo.insertar(nuevo_val)$}
+        }sino si(valor<nuevo_val){
+                si(derechoesnulo){hijoderecho=n$derechoesnulo=falso$}
+                sino{hijoderecho.insertar(nuevo_val)$}
+        }
+    }    
+
+    publico void imprimir_preOrden  () {
+        Imprimir(valor)$
+
+        Si(izquierdoesnulo != true) { 
+            hijoizquierdo.imprimir_preOrden()$
+        }
+
+        Si(derechoesnulo != true) { 
+            hijoderecho.imprimir_preOrden()$
+        }
+    }
+
+    publico  void imprimir_postOrden  () {
+        Si (izquierdoesnulo != true) { 
+            hijoizquierdo.imprimir_postOrden()$
+        }
+        Si (derechoesnulo != true) {
+            hijoderecho.imprimir_postOrden()$
+        }
+        Imprimir(valor)$
+    }
+
+
+    publico void imprimir_enOrden  () {
+        Si (izquierdoesnulo != true) { 
+            hijoizquierdo.imprimir_enOrden()$
+        }
+
+        Imprimir(valor)$
+
+        Si (derechoesnulo != true) { 
+            hijoderecho.imprimir_enOrden()$
+        }
+    }    
+
+
+}

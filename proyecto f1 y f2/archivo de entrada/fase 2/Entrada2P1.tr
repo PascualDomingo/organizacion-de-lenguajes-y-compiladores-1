@@ -1,0 +1,164 @@
+incluir("Entrada2P2.tr")$
+
+clase Entrada2{
+	
+	<- Aquí empieza toda la ejecución ->
+	principal(){
+        mostrarNotificacion("Resultado", "Mi nota es : " + getNota())$
+        evaluarSwitch()$
+		FuncionesRecursivas f = nuevo FuncionesRecursivas()$
+        hacerRecursivas(f)$
+        f.cicloRepeat_Continuar_Romper()$
+        Cuentas c3 = nuevo Cuentas()$
+        c3.llamar()$
+	}
+
+    entero getNota(){
+        return 100$
+    }
+
+    void evaluarSwitch(){
+        imprimir("RESULTADOS:")
+        imprimir(">1===>"+hacerUnComprobar(1.0))$
+        imprimir(">2===>"+hacerUnComprobar(2.0))$
+        imprimir(">3===>"+hacerUnComprobar(3.0))$
+        imprimir(">4===>"+hacerUnComprobar(4.0))$
+
+    }
+    entero hacerUnComprobar(doble variable){
+        comprobar(variable) {
+            caso 1.0:
+                retornar 1$
+            salir $
+            caso 2.0:
+                retornar 2$
+            salir $
+            caso 3.0:
+                retornar 3$
+            salir $
+            defecto:
+                retornar 4$
+        }
+    }
+
+    void hacerRecursivas(FuncionesRecursivas f){
+        entero var1 = 0$
+        mientras(var1 < 4){
+            comprobar(var1) {
+                caso 0:
+                    f.imprimir_fibonacci(20)$
+                    Salir $
+                caso 2:
+                    f.Hanoi(4, 1, 2, 3)$
+                    salir$
+                caso 3:
+                    f.ParoImpar(15)$
+                    Salir$
+                defecto:
+                    f.ParoImpar(20)$
+            }
+            var1++$
+        }
+    }
+
+}
+
+
+clase FuncionesRecursivas{
+	
+	<------------- Función de Fibonacci ------------->
+
+    publico void imprimir_fibonacci (entero valor) {
+        imprimir("Resultado de fibonacci(" + valor + ") = " + fibonacci(valor))$
+    }
+
+    publico entero fibonacci (entero n) {
+        si (n == 0) {
+            retornar 0$
+        }
+
+        si (n == 1) {
+            retornar 1$
+        }
+
+        retornar fibonacci(n - 1) + fibonacci(n - 2)$
+    }
+
+    <--------------- Función de las Torres de Hanói --------------->
+
+    publico void Hanoi (entero discos, entero origen, entero auxiliar, entero destino) {
+        si (discos == 1) {
+            imprimir("mover disco de " + origen + " a " + destino)$
+        } sino {
+            Hanoi(discos - 1, origen, destino, auxiliar)$
+            imprimir("mover disco de " + origen + " a " + destino)$
+            Hanoi(discos - 1, auxiliar, origen, destino)$
+        }
+    }
+
+    <-------------------- Función que calcúla si un número es Par o Impar -------------------->
+    publico void ParoImpar (entero a) {
+        si (par(a) == 1) { // El número es Par
+            imprimir("El numero '" + a + "'" + " es Par")$
+        } sino { // El número es impar
+            imprimir("El numero '" + a + "'" + " es Impar")$
+        }
+    }
+
+    publico entero par (entero nump) {
+        si (nump == 0) {
+            retornar 1$
+        }
+        retornar impar(nump - 1)$
+    }
+
+    publico entero impar (entero numi) {
+        si (numi == 0) {
+            retornar 0$
+        }
+        retornar par(numi - 1)$
+    }
+
+
+publico  void cicloRepeat_Continuar_Romper(){
+    imprimir("============Validar Continuar y Romper===========")$
+    entero i = 0$
+    
+    repetir(5*5-3*5){ //repetir 10 veces
+        entero j = i$
+        Si(i != 7 && i != 5){
+        mientras(!(j <=0)){
+            j = j -2$
+        }
+        Si(j==0){
+            imprimir("El numero: "+i +" es par")$
+        }Sino Si(j!=0){
+            imprimir("El numero: "+i +" es impar")$
+
+        }
+        }Sino{
+            Si(i==7){
+                
+                imprimir("Hay un break para el numero 7 :3")$
+                Romper$
+                imprimir("Esto no deberia imprimirse por el continue :/")$
+            }Sino si(i ==5){
+                imprimir("me voy a saltar el 5 porque hay un continue :3")$
+                i = i + 1$
+                Continuar$
+            }
+        }
+        i = i + 1$
+        
+    }
+    Si(i==7){
+        imprimir("Si el ultimo numero impreso es un 7, tenes un +5 ")$
+                        punteo = punteo +5$
+
+    }Sino{
+        imprimir("No funciona tu Break o Continue, perdiste 5 puntos :(")$
+    }
+    imprimir("======================================")$
+    
+    }
+}
